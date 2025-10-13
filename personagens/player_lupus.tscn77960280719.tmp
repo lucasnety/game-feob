@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://3a1vgl35yn2c"]
+
+[ext_resource type="PackedScene" uid="uid://bfvmj2f6dogng" path="res://personagens/andar.fbx" id="1_lupdm"]
+[ext_resource type="Animation" uid="uid://dnfcq5rqlteg4" path="res://personagens/correr_rapido.res" id="2_lieqn"]
+[ext_resource type="Animation" uid="uid://brraahul4q7mf" path="res://personagens/animations/andar.res" id="3_vmlkl"]
+[ext_resource type="Animation" uid="uid://bcufntppm6enh" path="res://personagens/animations/respirar.res" id="4_uacd0"]
+[ext_resource type="Animation" uid="uid://dd71y50ovuqob" path="res://personagens/animations/pular.res" id="5_rkup4"]
+[ext_resource type="Script" uid="uid://b3r1y5hl1bn8k" path="res://scripts_personagens/spring_arm_3d.gd" id="6_rkup4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uacd0"]
+_data = {
+&"andar": ExtResource("3_vmlkl"),
+&"correr_rapido": ExtResource("2_lieqn"),
+&"pular": ExtResource("5_rkup4"),
+&"respirar": ExtResource("4_uacd0")
+}
+
+[node name="personagem_lupus" instance=ExtResource("1_lupdm")]
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/0/position = Vector3(7.0839385e-05, 0.88768137, 0.0014277748)
+bones/0/rotation = Quaternion(0.033329263, -0.032203965, -0.0027077552, 0.9989218)
+bones/1/rotation = Quaternion(-0.034743063, 0.002763455, 0.0002585578, 0.9993925)
+bones/2/position = Vector3(-1.0587912e-22, 0.09787624, -6.938894e-18)
+bones/2/rotation = Quaternion(0.0044561243, 0.0049350187, -0.0009323992, 0.99997747)
+bones/3/position = Vector3(0, 0.11185857, 1.3877788e-17)
+bones/3/rotation = Quaternion(0.004427472, 0.004950985, -0.0009842959, 0.99997747)
+bones/4/rotation = Quaternion(-0.073642105, -0.0109057315, 0.023876699, 0.9969393)
+bones/5/position = Vector3(-1.0587912e-22, 0.081201784, 0.0074642347)
+bones/5/rotation = Quaternion(0.08819642, 0.029486695, -0.020005135, 0.9954656)
+bones/7/rotation = Quaternion(-0.65373844, -0.3450086, 0.5519083, -0.3859955)
+bones/8/position = Vector3(-3.469447e-17, 0.122179426, 0)
+bones/8/rotation = Quaternion(0.33597672, 0.17124122, 0.08246734, 0.9224941)
+bones/9/position = Vector3(-2.7755576e-17, 0.20117486, 0)
+bones/9/rotation = Quaternion(-0.004562161, -0.01576817, 0.110822424, 0.9937047)
+bones/10/position = Vector3(-3.1225023e-17, 0.20644167, -1.110223e-16)
+bones/10/rotation = Quaternion(8.3049886e-17, -8.673617e-18, -3.469447e-18, 1)
+bones/11/rotation = Quaternion(0.6812127, -0.32492888, 0.53065795, 0.38571063)
+bones/12/position = Vector3(4.1633363e-17, 0.12217941, -2.220446e-16)
+bones/12/rotation = Quaternion(0.3465031, -0.065726385, -0.04668407, 0.9345782)
+bones/13/position = Vector3(-2.7755576e-17, 0.2012328, 1.110223e-16)
+bones/13/rotation = Quaternion(-0.006003818, 0.009270833, -0.06471397, 0.9978427)
+bones/14/position = Vector3(2.4286129e-17, 0.20634241, -1.110223e-16)
+bones/14/rotation = Quaternion(3.4564365e-16, 1.7347235e-17, -1.0408341e-17, 1)
+bones/15/rotation = Quaternion(0.11583806, 0.06558262, 0.98800373, -0.078289725)
+bones/16/position = Vector3(-2.7755576e-17, 0.3627839, 2.6020852e-18)
+bones/16/rotation = Quaternion(-0.092001736, -0.04015868, 0.017687224, 0.99479157)
+bones/17/position = Vector3(-3.6082248e-16, 0.3862806, 1.7347235e-18)
+bones/17/rotation = Quaternion(0.51996976, -0.041749593, -0.043714486, 0.8520432)
+bones/18/position = Vector3(5.551115e-17, 0.18889022, -1.3877788e-17)
+bones/18/rotation = Quaternion(0.26670933, -0.108025946, 0.029639564, 0.9572451)
+bones/20/rotation = Quaternion(-0.08184425, 0.06760092, 0.9920257, 0.067947224)
+bones/21/position = Vector3(0, 0.36275265, -2.1684043e-19)
+bones/21/rotation = Quaternion(-0.0616604, -0.014856474, -0.019741649, 0.9977914)
+bones/22/position = Vector3(0, 0.38626, 8.6736174e-19)
+bones/22/rotation = Quaternion(0.49670446, 0.042043973, 0.043694995, 0.8657989)
+bones/23/position = Vector3(2.7755576e-17, 0.18528685, 1.3877788e-17)
+bones/23/rotation = Quaternion(0.27328542, 0.10424412, -0.02943212, 0.9558149)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"movimentation": SubResource("AnimationLibrary_uacd0")
+}
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4867661, 0.04009849)
+spring_length = 2.5
+script = ExtResource("6_rkup4")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9074576)

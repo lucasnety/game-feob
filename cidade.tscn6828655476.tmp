@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://bupgnnafmnt5c"]
+
+[ext_resource type="Texture2D" uid="uid://um5wp4insh0h" path="res://Images/nuvens-de-estilo-anime.jpg" id="1_ntijq"]
+[ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="2_e35ai"]
+[ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_e35ai"]
+[ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_e35ai"]
+[ext_resource type="Script" uid="uid://co2ur7ykjb71o" path="res://control.gd" id="5_h7aln"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e35ai"]
+panorama = ExtResource("1_ntijq")
+
+[sub_resource type="Sky" id="Sky_h7aln"]
+sky_material = SubResource("PanoramaSkyMaterial_e35ai")
+
+[sub_resource type="Environment" id="Environment_1lpms"]
+background_mode = 2
+sky = SubResource("Sky_h7aln")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2m2cm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y31c1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ie68t"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h7aln"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1lpms"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="word" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1lpms")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+collision_layer = 4
+script = ExtResource("2_e35ai")
+
+[node name="personagem_lupus" parent="Player" instance=ExtResource("3_e35ai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12985992)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.49035543, 0, 0, 0, 1, 0, 0, 0, 0.4209596, 0, 0.82948494, 0)
+shape = SubResource("CapsuleShape3D_2m2cm")
+
+[node name="camera" type="Node3D" parent="Player"]
+script = ExtResource("4_e35ai")
+
+[node name="horizontal" type="Node3D" parent="Player/camera"]
+
+[node name="vertical" type="Node3D" parent="Player/camera/horizontal"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/camera/horizontal/vertical"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4449311, 0)
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="Player/camera/horizontal/vertical/SpringArm3D"]
+
+[node name="chão" type="MeshInstance3D" parent="."]
+transform = Transform3D(31.15569, 0, 0, 0, 0.9975472, 0, 0, 0, 32.75629, -0.15863693, -0.56455183, 0)
+mesh = SubResource("BoxMesh_y31c1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="chão"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chão/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ie68t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.771915, 0, 0, 0, 4.720145, 0, 0, 0, 0.6773535, 0, 2.4199774, 7.330562)
+mesh = SubResource("BoxMesh_h7aln")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1lpms")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99946856, 0, 0.032596923, 0, 1, 0, -0.032596923, 0, -0.99946856, 0, 1.7416918, -2.8316321)
+light_energy = 1.522
+light_indirect_energy = 1.348
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_h7aln")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://3a1vgl35yn2c"]
+
+[ext_resource type="PackedScene" uid="uid://bfvmj2f6dogng" path="res://personagens/andar.fbx" id="1_lupdm"]
+[ext_resource type="Animation" uid="uid://dnfcq5rqlteg4" path="res://personagens/correr_rapido.res" id="2_lieqn"]
+[ext_resource type="Animation" uid="uid://brraahul4q7mf" path="res://personagens/animations/andar.res" id="3_vmlkl"]
+[ext_resource type="Animation" uid="uid://cnscs3rngg18r" path="res://personagens/animations/respirar.res" id="4_uacd0"]
+[ext_resource type="Animation" uid="uid://bjajbw7dip81g" path="res://personagens/animations/pular.res" id="5_rkup4"]
+[ext_resource type="Animation" uid="uid://d2eqd80yalwn1" path="res://personagens/animations/parado.res" id="6_rkup4"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uacd0"]
+_data = {
+&"andar": ExtResource("3_vmlkl"),
+&"correr_rapido": ExtResource("2_lieqn"),
+&"parado": ExtResource("6_rkup4"),
+&"pular": ExtResource("5_rkup4"),
+&"respirar": ExtResource("4_uacd0")
+}
+
+[node name="personagem_lupus" instance=ExtResource("1_lupdm")]
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/0/position = Vector3(-0.0047532218, 0.81534165, -0.001041044)
+bones/0/rotation = Quaternion(0.068752654, -0.07812668, -0.014779088, 0.9944601)
+bones/1/rotation = Quaternion(-0.003652804, 0.016144233, 0.011364288, 0.9997985)
+bones/2/position = Vector3(-1.0587912e-22, 0.09787624, -6.938894e-18)
+bones/2/rotation = Quaternion(0.03774295, 0.02712108, -0.0013721802, 0.9989184)
+bones/3/position = Vector3(0, 0.11185857, 1.3877788e-17)
+bones/3/rotation = Quaternion(0.037098877, 0.025497865, -0.0015020658, 0.99898523)
+bones/4/rotation = Quaternion(0.03175118, 0.0036097243, 0.010145622, 0.9994378)
+bones/5/position = Vector3(-1.0587912e-22, 0.081201784, 0.0074642347)
+bones/5/rotation = Quaternion(-0.26129064, 0.020904226, 0.014415109, 0.9649261)
+bones/7/rotation = Quaternion(-0.5624643, -0.40137497, 0.63279986, -0.34942308)
+bones/8/position = Vector3(-3.469447e-17, 0.122179426, 0)
+bones/8/rotation = Quaternion(0.20407043, 0.248795, -0.077525586, 0.94363457)
+bones/9/position = Vector3(-2.7755576e-17, 0.20117486, 0)
+bones/9/rotation = Quaternion(-0.030016683, -0.27536163, 0.7291237, 0.62582237)
+bones/10/position = Vector3(-3.1225023e-17, 0.20644167, -1.110223e-16)
+bones/10/rotation = Quaternion(8.3049886e-17, -8.673617e-18, -3.469447e-18, 1)
+bones/11/rotation = Quaternion(0.5772331, -0.3911981, 0.6184482, 0.36233667)
+bones/12/position = Vector3(4.1633363e-17, 0.12217941, -2.220446e-16)
+bones/12/rotation = Quaternion(0.14004844, -0.12849678, -0.1944762, 0.962317)
+bones/13/position = Vector3(-2.7755576e-17, 0.2012328, 1.110223e-16)
+bones/13/rotation = Quaternion(-0.06394758, 0.26134995, -0.68926376, 0.6726979)
+bones/14/position = Vector3(2.4286129e-17, 0.20634241, -1.110223e-16)
+bones/14/rotation = Quaternion(3.4564365e-16, 1.7347235e-17, -1.0408341e-17, 1)
+bones/15/rotation = Quaternion(0.09438288, 0.3982417, 0.9118031, -0.03332802)
+bones/16/position = Vector3(-2.7755576e-17, 0.3627839, 2.6020852e-18)
+bones/16/rotation = Quaternion(-0.783766, -0.033299375, 0.07384387, 0.61575085)
+bones/17/position = Vector3(-3.6082248e-16, 0.3862806, 1.7347235e-18)
+bones/17/rotation = Quaternion(0.4771048, 0.058800925, 0.14268357, 0.8651906)
+bones/18/position = Vector3(5.551115e-17, 0.18889022, -1.3877788e-17)
+bones/18/rotation = Quaternion(0.2741242, -0.107621424, 0.029524378, 0.95519733)
+bones/20/rotation = Quaternion(0.026538474, 0.16075455, 0.9856231, -0.04473167)
+bones/21/position = Vector3(0, 0.36275265, -2.1684043e-19)
+bones/21/rotation = Quaternion(-0.3934352, 0.021617396, 0.02221024, 0.9188298)
+bones/22/position = Vector3(0, 0.38626, 8.6736174e-19)
+bones/22/rotation = Quaternion(0.72359127, -0.016766451, -0.072271615, 0.6862299)
+bones/23/position = Vector3(2.7755576e-17, 0.18528685, 1.3877788e-17)
+bones/23/rotation = Quaternion(0.2879897, 0.104779065, -0.028845415, 0.9514469)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"movimentation": SubResource("AnimationLibrary_uacd0")
+}
