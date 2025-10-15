@@ -1,0 +1,27 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://b6c15mi5xyq6e"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_yg2v0"]
+constant = Color(1, 0.1764706, 1, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// ColorConstant:2
+	vec4 n_out2p0 = vec4(1.000000, 0.176471, 1.000000, 1.000000);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/vertex/0/position = Vector2(400, 120)
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorConstant_yg2v0")
+nodes/vertex/2/position = Vector2(215.91475, 273.1175)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 6)
