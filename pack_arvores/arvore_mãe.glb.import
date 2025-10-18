@@ -1,0 +1,51 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rqr81d15d6oc"
+path="res://.godot/imported/arvore_mãe.glb-c59ec525a4c0ed12dd61ef8e22e96236.scn"
+
+[deps]
+
+source_file="res://pack_arvores/arvore_mãe.glb"
+dest_files=["res://.godot/imported/arvore_mãe.glb-c59ec525a4c0ed12dd61ef8e22e96236.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:Sketchfab_model/0c3ec3d3d0304325ad10ee9c47e9804f_3ds/Model/Low_Poly_N/skp7EEA1/Object_101": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/0c3ec3d3d0304325ad10ee9c47e9804f_3ds/Model/Low_Poly_N/skp7EEA1/Object_99": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
