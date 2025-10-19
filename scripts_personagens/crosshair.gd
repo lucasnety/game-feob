@@ -1,4 +1,3 @@
-
 extends Control
 
 @export var radius: float = 3
@@ -6,13 +5,11 @@ extends Control
 @export var size_box: Vector2 = Vector2(20, 20)
 
 func _ready() -> void:
-	# Centraliza o Control na tela
 	set_anchors_preset(Control.PRESET_CENTER)
 	custom_minimum_size = size_box
 	queue_redraw()
 
 func _draw() -> void:
-	# Desenha uma bolinha no centro
 	var center = Vector2(size_box.x / 2, size_box.y / 2)
 	draw_circle(center, radius, color)
 
