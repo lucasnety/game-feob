@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+@export var inventory_data: InventoryData
+signal toggle_inventory()
+
+
 # Velocidades
 const WALK_SPEED: float = 5.0
 const RUN_SPEED: float = 10.0
@@ -13,6 +17,11 @@ const JUMP_VELOCITY: float = 4.5
 var is_jumping: bool = false
 
 func _physics_process(delta: float) -> void:
+	
+	#alterna o inventario
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
+	
 	# Aplica gravidade
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -75,3 +84,5 @@ func _physics_process(delta: float) -> void:
 			animator.play("movimentation/parado")
 
 	move_and_slide()
+	
+	

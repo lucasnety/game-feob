@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://c1h837rgvhf2w"]
+
+[ext_resource type="Script" uid="uid://bn2ei8xjyorl2" path="res://inventario/inventory_data.gd" id="1_kmuad"]
+[ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="2_f8h0n"]
+[ext_resource type="Resource" uid="uid://ccsmh3q1lp0aw" path="res://item/items/moeda.tres" id="3_f8h0n"]
+
+[sub_resource type="Resource" id="Resource_76oa2"]
+script = ExtResource("2_f8h0n")
+item_data = ExtResource("3_f8h0n")
+quantidade = 10
+metadata/_custom_type_script = "uid://csryyvm0ucsy6"
+
+[resource]
+script = ExtResource("1_kmuad")
+slot_datas = Array[ExtResource("2_f8h0n")]([SubResource("Resource_76oa2"), null, null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://bn2ei8xjyorl2"

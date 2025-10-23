@@ -12,6 +12,8 @@ var cam_ver: float = 0.0
 var mira: Control       # o Control da mira que eu coloquei na tela
 var cam: Camera3D       # a câmera real do jogador
 
+
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# pego a mira na tela
