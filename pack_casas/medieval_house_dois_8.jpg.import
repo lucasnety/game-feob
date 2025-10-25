@@ -9,7 +9,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "126c9fa0cd9dc2dbeef0fa2bd3b10b3a"
+"md5": "b8c9ab06da8c0c06ffbe0a91373fb364"
 }
 
 [deps]
@@ -22,6 +22,8 @@ dest_files=["res://.godot/imported/medieval_house_dois_8.jpg-df850738de9062768cb
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -29,6 +31,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://pack_casas/medieval_house_dois_8.jpg"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
