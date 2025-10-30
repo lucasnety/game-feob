@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 # Sinais
 signal toggle_inventory()
-signal camera_locked(is_locked: bool)  # novo sinal para travar/destravar câmera
+signal camera_locked(is_locked: bool)  # trava/destrava câmera
 
 # Velocidades
 const WALK_SPEED: float = 5.0
@@ -17,7 +17,21 @@ const JUMP_VELOCITY: float = 4.5
 
 # Flags
 var is_jumping: bool = false
-var camera_travada: bool = false  # controla se a câmera está bloqueada (ex: inventário aberto)
+var camera_travada: bool = false  # bloqueia câmera ao abrir inventário
+var is_persistent: bool = false   # garante persistência do player entre cenas
+
+func _ready():
+	# 🔹 Registra o player globalmente
+	PlayerManager.player = self
+
+	# 🔹 Mantém o player entre cenas (não é destruído ao trocar de mapa)
+	if not is_persistent:
+		is_persistent = true
+		get_parent().remove_child(self)
+		get_tree().root.add_child(self)
+		set_owner(null)  # evita erro de ownership entre cenas
+
+	
 
 func _physics_process(delta: float) -> void:
 	# --- Inventário ---
@@ -55,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 
-	# Rotação do personagem
+	# --- Rotação do personagem ---
 	if direction != Vector3.ZERO:
 		$personagem_lupus.rotation.y = lerp_angle(
 			$personagem_lupus.rotation.y,

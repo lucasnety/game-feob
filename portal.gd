@@ -3,20 +3,23 @@ extends Node3D
 # Referências
 @onready var area = $Area3D
 @onready var label_m = $CanvasLayer/Label
-@onready var menu = $CanvasLayer/Panel  # Panel é filho direto do CanvasLayer
+@onready var menu = $CanvasLayer/Panel
+@onready var loading_panel = $CanvasLayer/LoadingPanel
+
+@export var masmorra_spawn: Node3D
 
 var player_dentro = false
+var player_ref: CharacterBody3D = null
 
 func _ready():
 	label_m.visible = false
 	if menu:
 		menu.visible = false
+	if loading_panel:
+		loading_panel.visible = false
 
-	# Conecta sinais do Area3D
 	area.body_entered.connect(_on_body_entered)
 	area.body_exited.connect(_on_body_exited)
-
-	# Conecta os botões com segurança
 	call_deferred("_init_buttons")
 
 func _init_buttons():
@@ -35,7 +38,6 @@ func _init_buttons():
 	if btn_infernal:
 		btn_infernal.pressed.connect(Callable(self, "_on_dificulty_selected").bind("Infernal"))
 
-	# Botão Voltar
 	var btn_voltar = menu.get_node_or_null("VBoxContainer/ButtonVoltar")
 	if btn_voltar:
 		btn_voltar.pressed.connect(Callable(self, "_on_voltar_pressed"))
@@ -43,6 +45,7 @@ func _init_buttons():
 func _on_body_entered(body):
 	if body.name == "Player":
 		player_dentro = true
+		player_ref = body
 		label_m.visible = true
 
 func _on_body_exited(body):
@@ -63,11 +66,24 @@ func _on_dificulty_selected(level):
 	if menu:
 		menu.visible = false
 
-	# Futuramente teleportaremos o jogador para a masmorra
-	# ex: teleport_player_to_dungeon(level)
+	GameState.dificuldade = level
+
+	if loading_panel:
+		await loading_panel.start_loading("res://Cenas/masmorra.tscn")
+
+	# --- Reinsere o Player global na nova cena ---
+	if PlayerManager.player and masmorra_spawn:
+		var player = PlayerManager.player
+
+		if player.get_parent():
+			player.get_parent().remove_child(player)
+
+		get_tree().current_scene.add_child(player)
+
+		player.global_transform.origin = masmorra_spawn.global_transform.origin
+		player.global_transform.basis = masmorra_spawn.global_transform.basis
 
 func _on_voltar_pressed():
-	# Fecha o menu e mostra o Label novamente
 	if menu:
 		menu.visible = false
 	if player_dentro:

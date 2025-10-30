@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Game_Feob"
-run/main_scene="res://cidade.tscn"
+run/main_scene="res://Cenas/cidade.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://Images/GameState.gd"
+PlayerManager="*res://Images/PlayerManager.gd"
 
 [input]
 
