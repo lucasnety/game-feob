@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
 
 # --- Sinais ---
 signal toggle_inventory()
@@ -16,6 +17,7 @@ const JUMP_VELOCITY: float = 4.5
 @onready var camera_horizontal = $camera/horizontal
 @onready var hand_attachment = $personagem_lupus/Skeleton3D/hand_attachment
 @onready var back_attachment = $personagem_lupus/Skeleton3D/back_attachment
+
 
 # --- Flags ---
 var is_jumping: bool = false
@@ -128,3 +130,5 @@ func _physics_process(delta: float) -> void:
 				animator.play("movimentation/andar")
 		else:
 			animator.play("movimentation/parado")
+
+		

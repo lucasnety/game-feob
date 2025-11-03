@@ -4,6 +4,8 @@ var grabbed_slot_data: SlotData = null
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
+@onready var equip_inventory: PanelContainer = $EquipInventory
+
 
 func _ready() -> void:
 	# Garante que o slot agarrado comece escondido
@@ -24,6 +26,14 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 			player_inventory.set_inventory_data(inventory_data)
 		else:
 			push_warning("PlayerInventory não encontrado! Verifique o Node.")
+			
+func set_equip_inventory_data(inventory_data: InventoryData) -> void:
+	if inventory_data:
+		inventory_data.inventory_interact.connect(on_inventory_interact)
+		if equip_inventory:
+			equip_inventory.set_inventory_data(inventory_data)
+		else:
+			push_warning("PlayerInventory não encontrado! Verifique o Node.")			
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	if not inventory_data:

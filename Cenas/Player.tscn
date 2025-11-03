@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0u6y37hrni0a"]
+[gd_scene load_steps=10 format=3 uid="uid://b0u6y37hrni0a"]
 
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
+[ext_resource type="Resource" uid="uid://c1h837rgvhf2w" path="res://inventario/teste_inventario.tres" id="2_vwqu2"]
+[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
+[ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
 [ext_resource type="Script" uid="uid://dxkqivjwte8vi" path="res://scripts_personagens/crosshair.gd" id="5_ew46v"]
+
+[sub_resource type="Resource" id="Resource_e4l8r"]
+script = ExtResource("3_js5op")
+slot_datas = Array[ExtResource("4_ew46v")]([null])
+metadata/_custom_type_script = "uid://cjapxbycb0phv"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4l8r"]
 
@@ -12,6 +20,8 @@
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1.22169, 0.000139102, 0.230609, 0.000121272, 1.42278, -0.00148923, -0.215017, 0.00159262, 1.31028, 0, 0, 0)
 script = ExtResource("1_vwqu2")
+inventory_data = ExtResource("2_vwqu2")
+equip_inventory_data = SubResource("Resource_e4l8r")
 
 [node name="personagem_lupus" parent="Player" instance=ExtResource("3_wudov")]
 transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)

@@ -31,6 +31,7 @@ func _ready() -> void:
 	# 5️⃣ Conecta inventário
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
+	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
 
 	# 6️⃣ Marca o Player como persistente **após ele estar na árvore**
 	player.call_deferred("_make_persistent")

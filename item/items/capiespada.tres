@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=3 format=3 uid="uid://dqxmmttye246v"]
+
+[ext_resource type="Script" uid="uid://daa8rwtrx7toq" path="res://item/item_data_equip.gd" id="1_btupk"]
+[ext_resource type="Texture2D" uid="uid://uryh2vqt3u8r" path="res://item/capiespada.tres" id="2_518y6"]
+
+[resource]
+script = ExtResource("1_btupk")
+damage = 10
+nome = "capiespada"
+descricao = "teste espada"
+stackable = false
+texture = ExtResource("2_518y6")
+metadata/_custom_type_script = "uid://daa8rwtrx7toq"
