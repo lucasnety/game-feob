@@ -9,6 +9,9 @@ var player_scene: PackedScene = preload("res://Cenas/Player.tscn")
 var player_node: Node3D = null
 var player: CharacterBody3D = null
 
+
+
+
 func _ready() -> void:
 	# 1️⃣ Instancia Player
 	player_node = player_scene.instantiate() as Node3D
@@ -29,17 +32,7 @@ func _ready() -> void:
 		return
 
 	# 5️⃣ Conecta inventário
-	player.toggle_inventory.connect(toggle_inventory_interface)
-	inventory_interface.set_player_inventory_data(player.inventory_data)
-	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
+	
 
 	# 6️⃣ Marca o Player como persistente **após ele estar na árvore**
 	player.call_deferred("_make_persistent")
-
-
-func toggle_inventory_interface() -> void:
-	inventory_interface.visible = not inventory_interface.visible
-	if inventory_interface.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
