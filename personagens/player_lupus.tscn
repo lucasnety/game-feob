@@ -7,10 +7,10 @@
 [ext_resource type="Animation" uid="uid://cnscs3rngg18r" path="res://personagens/animations/respirar.res" id="4_uacd0"]
 [ext_resource type="Animation" uid="uid://bjajbw7dip81g" path="res://personagens/animations/pular.res" id="5_rkup4"]
 [ext_resource type="Animation" uid="uid://vfx2rnjpb2un" path="res://personagens/animations/parado.res" id="6_rkup4"]
-[ext_resource type="Animation" uid="uid://bptnpopk84k0c" path="res://personagens/animations/correr_espada.res" id="8_gyy4t"]
-[ext_resource type="Animation" uid="uid://b0atdvd3ukmv3" path="res://personagens/animations/jump_espada.res" id="9_82kx6"]
-[ext_resource type="Animation" uid="uid://df2i1pdm7gs6v" path="res://personagens/animations/andar_espada.res" id="10_uwmue"]
-[ext_resource type="Animation" uid="uid://qofguy8hicgr" path="res://personagens/animations/sacar_espada.res" id="11_vbeq8"]
+[ext_resource type="Animation" uid="uid://cwrl4ft6p0oha" path="res://personagens/animations/correr_espada.res" id="8_gyy4t"]
+[ext_resource type="Animation" uid="uid://d27a5jv363li8" path="res://personagens/animations/jump_espada.res" id="9_82kx6"]
+[ext_resource type="Animation" uid="uid://bq0bq0hg30ayg" path="res://personagens/animations/andar_espada.res" id="10_uwmue"]
+[ext_resource type="Animation" uid="uid://cky6jepx5g1nk" path="res://personagens/animations/sacar_espada.res" id="11_vbeq8"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uacd0"]
 _data = {
@@ -28,7 +28,6 @@ _data = {
 [node name="personagem_lupus" instance=ExtResource("1_lupdm")]
 
 [node name="Skeleton3D" parent="." index="0"]
-bones/0/position = Vector3(0.007258082, 0.8114526, -0.024606995)
 bones/0/rotation = Quaternion(0.19252503, -0.34007573, -0.019880526, 0.92026484)
 bones/1/rotation = Quaternion(0.097291656, 0.0022999072, -0.0009713278, 0.9952528)
 bones/2/position = Vector3(-1.05879e-22, 0.0978762, -6.93889e-18)
@@ -68,7 +67,7 @@ bones/23/position = Vector3(2.77556e-17, 0.185287, 1.38778e-17)
 bones/23/rotation = Quaternion(0.37788683, 0.11092841, -0.02416772, 0.9188648)
 
 [node name="back_attachment" type="BoneAttachment3D" parent="Skeleton3D" index="1"]
-transform = Transform3D(0.7700397, -0.28389624, -0.571351, -0.16680232, 0.7748054, -0.6097981, 0.61580515, 0.5648713, 0.54927623, -0.04554178, 1.0637958, 0.11007642)
+transform = Transform3D(0.7700397, -0.28389624, -0.571351, -0.16680232, 0.7748054, -0.6097981, 0.61580515, 0.5648713, 0.54927623, -0.052799053, 1.15067, 0.13175431)
 bone_name = "mixamorig_Spine2"
 bone_idx = 3
 
@@ -76,7 +75,7 @@ bone_idx = 3
 transform = Transform3D(-0.25456968, 0.62216276, -0.15558884, -0.6290536, -0.27482668, -0.06972886, -0.12484444, 0.11612003, 0.6686032, -0.841, 0.194, -0.33)
 
 [node name="hand_attachment" type="BoneAttachment3D" parent="Skeleton3D" index="2"]
-transform = Transform3D(0.44340962, -0.44547004, 0.7777816, 0.89194286, 0.30494168, -0.33383882, -0.08846296, 0.8417641, 0.53254783, -0.38439897, 1.0125307, 0.16045257)
+transform = Transform3D(0.44340962, -0.44547004, 0.7777816, 0.89194286, 0.30494168, -0.33383882, -0.08846296, 0.8417641, 0.53254783, -0.39165625, 1.0994048, 0.18213046)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
