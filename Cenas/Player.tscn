@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0u6y37hrni0a"]
+
+[ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
+[ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
+[ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
+[ext_resource type="Script" uid="uid://dxkqivjwte8vi" path="res://scripts_personagens/crosshair.gd" id="5_ew46v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4l8r"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1.22169, 0.000139102, 0.230609, 0.000121272, 1.42278, -0.00148923, -0.215017, 0.00159262, 1.31028, 0, 0, 0)
+script = ExtResource("1_vwqu2")
+
+[node name="personagem_lupus" parent="Player" instance=ExtResource("3_wudov")]
+transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.699897, -0.00844679, 0.00855125, 0.00855126, 0.699896, -0.0085519, -0.00844679, 0.0086551, 0.699896, -0.000143051, 0.765629, -0.144884)
+shape = SubResource("CapsuleShape3D_e4l8r")
+
+[node name="camera" type="Node3D" parent="Player"]
+script = ExtResource("4_js5op")
+
+[node name="horizontal" type="Node3D" parent="Player/camera"]
+
+[node name="vertical" type="Node3D" parent="Player/camera/horizontal"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/camera/horizontal/vertical"]
+transform = Transform3D(1, 0, 0, 4.65661e-10, 1, 0, 0, 0, 1, -0.000765562, 1.34157, 0)
+collision_mask = 4
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="Player/camera/horizontal/vertical/SpringArm3D"]
+transform = Transform3D(0.806148, -1.39698e-09, 0, 9.31323e-10, 0.702847, 0, 0, 0, 0.75164, -0.033077, 0.000186205, 0.0901608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Control" type="Control" parent="Player/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 692.0
+offset_top = 295.0
+offset_right = 732.0
+offset_bottom = 335.0
+script = ExtResource("5_ew46v")
