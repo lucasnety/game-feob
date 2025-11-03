@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0u6y37hrni0a"]
+[gd_scene load_steps=14 format=3 uid="uid://b0u6y37hrni0a"]
 
-[ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
+[ext_resource type="Script" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
 [ext_resource type="Resource" uid="uid://c1h837rgvhf2w" path="res://inventario/teste_inventario.tres" id="2_vwqu2"]
-[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
+[ext_resource type="Script" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
 [ext_resource type="Script" uid="uid://dxkqivjwte8vi" path="res://scripts_personagens/crosshair.gd" id="5_ew46v"]
 [ext_resource type="Script" uid="uid://divsx5u3jbv77" path="res://inventario/inventory_interface.gd" id="8_ew46v"]
 [ext_resource type="PackedScene" uid="uid://xyrbwqk41xir" path="res://inventario/inventory.tscn" id="9_e4l8r"]
+[ext_resource type="Script" uid="uid://dhy1nbin037xg" path="res://scripts_personagens/combat_system.gd" id="9_nm60e"]
 
 [sub_resource type="Resource" id="Resource_e4l8r"]
 script = ExtResource("3_js5op")
@@ -59,6 +60,9 @@ offset_top = 295.0
 offset_right = 732.0
 offset_bottom = 335.0
 script = ExtResource("5_ew46v")
+
+[node name="CombatSystem" type="Node3D" parent="Player"]
+script = ExtResource("9_nm60e")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
