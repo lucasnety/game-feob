@@ -14,28 +14,50 @@ const JUMP_VELOCITY: float = 4.5
 # --- Nós ---
 @onready var animator = $personagem_lupus/AnimationPlayer
 @onready var camera_horizontal = $camera/horizontal
+@onready var hand_attachment = $personagem_lupus/Skeleton3D/hand_attachment
+@onready var back_attachment = $personagem_lupus/Skeleton3D/back_attachment
 
 # --- Flags ---
 var is_jumping: bool = false
 var camera_travada: bool = false
-var is_persistent: bool = false
+var modo_combate: bool = false
 
 func _ready():
 	# 🔹 Registra globalmente
 	PlayerManager.player = self
-	# Não muda de parent aqui, será chamado deferred pelo world.gd
-	pass
+	
+	# 🔹 Espada começa nas costas
+	if back_attachment:
+		back_attachment.visible = true
+	if hand_attachment:
+		hand_attachment.visible = false
 
 
 func _make_persistent():
-	# Garantia: parent e tree existem
 	if get_tree() != null and get_parent() != null:
 		get_parent().remove_child(self)
 		get_tree().root.add_child(self)
-		set_owner(null)  # evita problemas de ownership
+		set_owner(null)
 
 
 func _physics_process(delta: float) -> void:
+	# --- Alternar modo de combate (TAB) ---
+	if Input.is_action_just_pressed("alterar_modo") and not camera_travada:
+		modo_combate = !modo_combate
+
+		if modo_combate:
+			# 🔹 Ativa modo combate (espada na mão)
+			if back_attachment:
+				back_attachment.visible = false
+			if hand_attachment:
+				hand_attachment.visible = true
+		else:
+			# 🔹 Sai do modo combate (espada nas costas)
+			if back_attachment:
+				back_attachment.visible = true
+			if hand_attachment:
+				hand_attachment.visible = false
+
 	# --- Inventário ---
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
@@ -43,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		emit_signal("camera_locked", camera_travada)
 
 	if camera_travada:
-		return  # bloqueia movimento
+		return
 
 	# --- Input de movimento ---
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -70,7 +92,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 
-	# --- Rotação do personagem ---
+	# --- Rotação ---
 	if direction != Vector3.ZERO:
 		$personagem_lupus.rotation.y = lerp_angle(
 			$personagem_lupus.rotation.y,
@@ -78,18 +100,31 @@ func _physics_process(delta: float) -> void:
 			delta * 5
 		)
 
-	# --- Move o personagem ---
+	# --- Move ---
 	move_and_slide()
 
 	# --- Animações ---
-	if is_jumping:
-		animator.play("movimentation/pular")
-		if is_on_floor():
-			is_jumping = false
-	elif direction.length() > 0:
-		if current_speed == RUN_SPEED:
-			animator.play("movimentation/correr_rapido")
+	if modo_combate:
+		if is_jumping:
+			animator.play("movimentation/jump_espada")
+			if is_on_floor():
+				is_jumping = false
+		elif direction.length() > 0:
+			if current_speed == RUN_SPEED:
+				animator.play("movimentation/correr_espada")
+			else:
+				animator.play("movimentation/andar_espada")
 		else:
-			animator.play("movimentation/andar")
+			animator.play("movimentation/parado")
 	else:
-		animator.play("movimentation/parado")
+		if is_jumping:
+			animator.play("movimentation/pular")
+			if is_on_floor():
+				is_jumping = false
+		elif direction.length() > 0:
+			if current_speed == RUN_SPEED:
+				animator.play("movimentation/correr_rapido")
+			else:
+				animator.play("movimentation/andar")
+		else:
+			animator.play("movimentation/parado")
