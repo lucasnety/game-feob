@@ -9,7 +9,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ab849d2f2b04c46d33e2797059f0da15"
+"md5": "5c9b53191289fa566b0563a0b8c085ba"
 }
 
 [deps]
@@ -22,8 +22,6 @@ dest_files=["res://.godot/imported/casa_grande_2.jpg-f6627175c8c7380f2fbae2e6aa7
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
-compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -31,10 +29,6 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://pack_casas/casa_grande_2.jpg"
-process/channel_remap/red=0
-process/channel_remap/green=1
-process/channel_remap/blue=2
-process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://om536bbyil88"
+uid="uid://nqmohqynu5ng"
 path.s3tc="res://.godot/imported/medieval_house_dois_1.png-51b88621b161f91b48bbd6ea65cd1a40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "311c1f29f3a45e076cf6cabcbdaa8458"
 }
 
 [deps]
@@ -22,19 +19,13 @@ dest_files=["res://.godot/imported/medieval_house_dois_1.png-51b88621b161f91b48b
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
-compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://pack_casas/medieval_house_dois_2.png"
-process/channel_remap/red=0
-process/channel_remap/green=1
-process/channel_remap/blue=2
-process/channel_remap/alpha=3
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
