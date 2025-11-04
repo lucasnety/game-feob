@@ -5,6 +5,7 @@ var grabbed_slot_data: SlotData = null
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var equip_inventory: PanelContainer = $EquipInventory
+@onready var moedas_label: Label = $"../MoedasLabel"
 
 
 func _ready() -> void:
@@ -20,6 +21,10 @@ func _physics_process(delta: float) -> void:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
 
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
+	
+	inventory_data.inventory_updated.connect(update_moedas_display)
+	update_moedas_display(inventory_data)
+	
 	if inventory_data:
 		inventory_data.inventory_interact.connect(on_inventory_interact)
 		if player_inventory:
@@ -60,3 +65,12 @@ func update_grabbed_slot() -> void:
 		grabbed_slot.set_slot_data(grabbed_slot_data)
 	else:
 		grabbed_slot.hide()
+		
+func update_moedas_display(inventory_data: InventoryData) -> void:
+	
+	if is_instance_valid(moedas_label):
+		
+		var total_gold = inventory_data.get_total_moedas()
+		
+   
+		moedas_label.text = "moedas: " + str(total_gold)

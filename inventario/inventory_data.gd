@@ -47,3 +47,13 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	
 func on_slot_cliked(index: int, button: int) -> void: 
 	inventory_interact.emit(self, index, button)
+
+func get_total_moedas() -> int:
+	var total_moesdas = 0
+	
+	for slot_data in slot_datas:
+		if slot_data != null and slot_data.item_data != null \
+		 and slot_data.item_data.nome == "moeda":
+			total_moesdas += slot_data.quantidade
+	
+	return total_moesdas	

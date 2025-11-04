@@ -30,3 +30,6 @@ func set_quantity(value: int) -> void:
 	if quantidade > 1 and not item_data.stackable:
 		quantidade = 1 
 		push_error("%s teste" % item_data.nome)
+
+
+			
