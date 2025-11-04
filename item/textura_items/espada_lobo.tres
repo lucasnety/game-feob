@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cy8eo1k8w3q5"]
+
+[ext_resource type="Texture2D" uid="uid://d2jmvaa8jdbbj" path="res://espadas_iventario_loja/assets_espadas/espada_lobo_asset.jpeg" id="1_jrbu2"]
+
+[resource]
+atlas = ExtResource("1_jrbu2")

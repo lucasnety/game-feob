@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_btupk")
 damage = 10
-nome = "capiespada"
-descricao = "teste espada"
+nome = "espada basica"
+descricao = "espada comum de um aventureiro
+dano: 10"
 stackable = false
 texture = ExtResource("2_518y6")
 metadata/_custom_type_script = "uid://daa8rwtrx7toq"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=3 format=3 uid="uid://c6f8eeegjl2vt"]
+
+[ext_resource type="Script" uid="uid://daa8rwtrx7toq" path="res://item/item_data_equip.gd" id="1_nophy"]
+[ext_resource type="Texture2D" uid="uid://cy8eo1k8w3q5" path="res://item/textura_items/espada_lobo.tres" id="2_w46yv"]
+
+[resource]
+script = ExtResource("1_nophy")
+damage = 50
+nome = "espada lobo"
+descricao = "dano: 50"
+stackable = false
+texture = ExtResource("2_w46yv")
+metadata/_custom_type_script = "uid://daa8rwtrx7toq"

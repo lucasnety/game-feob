@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0u6y37hrni0a"]
 
-[ext_resource type="Script" path="res://Cenas/player.gd" id="1_e4l8r"]
+[ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
 [ext_resource type="Resource" uid="uid://c1h837rgvhf2w" path="res://inventario/teste_inventario.tres" id="2_vwqu2"]
-[ext_resource type="Script" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
+[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]

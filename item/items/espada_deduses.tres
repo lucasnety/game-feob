@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=3 format=3 uid="uid://dbxrjh0lokypf"]
+
+[ext_resource type="Script" uid="uid://daa8rwtrx7toq" path="res://item/item_data_equip.gd" id="1_4ucsf"]
+[ext_resource type="Texture2D" uid="uid://bwdut3yj1npkj" path="res://item/textura_items/espada_deuses.tres" id="2_j55de"]
+
+[resource]
+script = ExtResource("1_4ucsf")
+damage = 0
+nome = "250"
+descricao = "dano: 250"
+stackable = false
+texture = ExtResource("2_j55de")
+metadata/_custom_type_script = "uid://daa8rwtrx7toq"
