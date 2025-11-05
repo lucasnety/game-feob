@@ -1,4 +1,21 @@
-[gd_scene format=3 uid="uid://j4vcoawuudq5"]
+[gd_scene load_steps=4 format=3 uid="uid://j4vcoawuudq5"]
+
+[ext_resource type="Texture2D" uid="uid://biirndnejkkyi" path="res://assets/ui/images/loading/intro_bg2.png" id="1_4pf6r"]
+[ext_resource type="FontFile" uid="uid://b6ssv7fvm3lwg" path="res://assets/ui/fonts/IMFellEnglishSC-Regular.ttf" id="2_glrg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pf6r"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.164706, 0.164706, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.305882, 0.803922, 0.768627, 0.25098)
+shadow_size = 4
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +24,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4pf6r")
+expand_mode = 3
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_top = 60.0
+offset_right = 315.0
+offset_bottom = 251.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_glrg0")
+theme_override_font_sizes/font_size = 150
+text = "LIMIAR"
+
+[node name="LoadingBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -286.0
+offset_top = -228.0
+offset_right = 464.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_4pf6r")
+
+[node name="LoadingText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -298.0
+offset_right = 124.0
+offset_bottom = -258.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, -100)
+theme_override_fonts/font = ExtResource("2_glrg0")
+theme_override_font_sizes/font_size = 35
+text = "Carregando..."
