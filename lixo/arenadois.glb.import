@@ -1,0 +1,354 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ce0xi6e1r0im4"
+path="res://.godot/imported/arenadois.glb-1d0876d1fe03e20d55685dbc9d269f16.scn"
+
+[deps]
+
+source_file="res://lixo/arenadois.glb"
+dest_files=["res://.godot/imported/arenadois.glb-1d0876d1fe03e20d55685dbc9d269f16.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained/ArenaTowerChained_Material_021_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_001/ArenaTowerChained_001_Material_001_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_002/ArenaTowerChained_002_Material_021_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_003/ArenaTowerChained_003_Material_001_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_004/ArenaTowerChained_004_Material_021_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_005/ArenaTowerChained_005_Material_001_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_006/ArenaTowerChained_006_Material_021_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTowerChained_007/ArenaTowerChained_007_Material_001_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_002/ArenaTower_002_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_003/ArenaTower_003_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_004/ArenaTower_004_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_005/ArenaTower_005_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_006/ArenaTower_006_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_007/ArenaTower_007_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_009/ArenaTower_009_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/ArenaTower_010/ArenaTower_010_Material_053_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Arena_130/Arena_130_Material_260_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Arena_131/Arena_131_Material_174_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Arena_132/Arena_132_Material_173_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Arena_151/Arena_151_Material_080_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Arena_164/Arena_164_Material_059_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Floor_001/Floor_001_Material_204_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Floor_002/Floor_002_Material_002_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance/FrontEntrance_Material_012_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_001/FrontEntrance_001_Material_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_002/FrontEntrance_002_Material_045_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_003/FrontEntrance_003_Material_018_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_005/FrontEntrance_005_Material_019_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_006/FrontEntrance_006_Material_022_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_066/FrontEntrance_066_Material_063_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_59/FrontEntrance_59_Material_023_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_60/FrontEntrance_60_Material_023_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_79/FrontEntrance_79_Material_020_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/FrontEntrance_80/FrontEntrance_80_Material_062_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Jango_Fett_Helmet_Piece/Jango_Fett_Helmet_Piece_Helmet_001_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Jango_Fett_Visor/Jango_Fett_Visor_Visor_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockPillar/RockPillar_Material_016_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockPillar_001/RockPillar_001_Material_016_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP1/RockSidingP1_Material_027_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP1_001/RockSidingP1_001_Material_071_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2/RockSidingP2_Material_071_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_002/RockSidingP2_002_Material_202_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_003/RockSidingP2_003_Material_040_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_005/RockSidingP2_005_Material_036_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_006/RockSidingP2_006_Material_043_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_007/RockSidingP2_007_Material_041_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_008/RockSidingP2_008_Material_026_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_009/RockSidingP2_009_Material_075_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_010/RockSidingP2_010_Material_035_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_012/RockSidingP2_012_Material_039_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_013/RockSidingP2_013_Material_202_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_014/RockSidingP2_014_Material_203_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP2_115/RockSidingP2_115_Material_076_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP3/RockSidingP3_Material_030_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/RockSidingP3_001/RockSidingP3_001_Material_078_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs/Stairs_Material_056_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs165/Stairs165_Material_060_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_001/Stairs_001_Material_050_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_002/Stairs_002_Material_064_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_003/Stairs_003_Material_047_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_004/Stairs_004_Material_029_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_007/Stairs_007_Material_061_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_0074/Stairs_0074_Material_166_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_009/Stairs_009_Material_032_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_010/Stairs_010_Material_051_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_011/Stairs_011_Material_052_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_012/Stairs_012_Material_165_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_013/Stairs_013_Material_168_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_099/Stairs_099_Material_255_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_159/Stairs_159_Material_206_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/Stairs_763/Stairs_763_Material_049_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/TarpTent2_002/TarpTent2_002_Material_024_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/TarpTent2_003/TarpTent2_003_Material_042_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/TunnelSide1/TunnelSide1_Material_073_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/TunnelSide3/TunnelSide3_Material_074_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/TunnelSide3_004/TunnelSide3_004_Material_249_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_005/WallsArena_005_Material_074_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_0088/WallsArena_0088_Material_247_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_0089/WallsArena_0089_Material_248_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_018/WallsArena_018_Material_079_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_029/WallsArena_029_Material_013_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_033/WallsArena_033_Material_010_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_036/WallsArena_036_Material_004_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_037/WallsArena_037_Material_011_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_041/WallsArena_041_Material_006_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_042/WallsArena_042_Material_005_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_0655/WallsArena_0655_Material_253_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_069/WallsArena_069_Material_044_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_077/WallsArena_077_Material_081_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_078/WallsArena_078_Material_069_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_079/WallsArena_079_Material_009_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_080/WallsArena_080_Material_046_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_081/WallsArena_081_Material_007_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_082/WallsArena_082_Material_008_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_086/WallsArena_086_Material_014_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_439/WallsArena_439_Material_257_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_458/WallsArena_458_Material_009_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/WallsArena_490/WallsArena_490_Material_054_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/deadjedi_fem01_mesh/deadjedi_fem01_mesh_prop_deadjedi_fem01_mat_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/deser_Tarp/deser_Tarp_WorldGridMaterial_003_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/deser_Tarp_001/deser_Tarp_001_lambert1_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/deser_Tarp_003/deser_Tarp_003_lambert1_0": {
+"generate/physics": true
+},
+"PATH:Sketchfab_model/ArenaForSketchfab_fbx/RootNode/deser_Tarp_006/deser_Tarp_006_Material_058_0": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -18,7 +18,6 @@ const JUMP_VELOCITY: float = 4.5
 @onready var hand_attachment = $personagem_lupus/Skeleton3D/hand_attachment
 @onready var back_attachment = $personagem_lupus/Skeleton3D/back_attachment
 
-
 # --- Flags ---
 var is_jumping: bool = false
 var camera_travada: bool = false
@@ -27,7 +26,13 @@ var modo_combate: bool = false
 func _ready():
 	# 🔹 Registra globalmente
 	PlayerManager.player = self
-	
+
+	# 🔹 Conecta automaticamente ao portal (qualquer um na cena)
+	var portals = get_tree().get_nodes_in_group("portal")
+	for portal in portals:
+		if portal.has_signal("camera_locked"):
+			portal.camera_locked.connect(_on_camera_locked_from_portal)
+
 	# 🔹 Espada começa nas costas
 	if back_attachment:
 		back_attachment.visible = true
@@ -48,13 +53,11 @@ func _physics_process(delta: float) -> void:
 		modo_combate = !modo_combate
 
 		if modo_combate:
-			# 🔹 Ativa modo combate (espada na mão)
 			if back_attachment:
 				back_attachment.visible = false
 			if hand_attachment:
 				hand_attachment.visible = true
 		else:
-			# 🔹 Sai do modo combate (espada nas costas)
 			if back_attachment:
 				back_attachment.visible = true
 			if hand_attachment:
@@ -131,4 +134,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animator.play("movimentation/parado")
 
-		
+
+# --- Função chamada quando o portal trava ou destrava a câmera ---
+func _on_camera_locked_from_portal(is_locked: bool) -> void:
+	camera_travada = is_locked
