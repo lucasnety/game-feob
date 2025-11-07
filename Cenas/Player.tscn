@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0u6y37hrni0a"]
 
-[ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
+[ext_resource type="Script" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
 [ext_resource type="Resource" uid="uid://c1h837rgvhf2w" path="res://inventario/teste_inventario.tres" id="2_vwqu2"]
-[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
+[ext_resource type="Script" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
@@ -32,7 +32,7 @@ equip_inventory_data = SubResource("Resource_e4l8r")
 transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.699897, -0.00844679, 0.00855125, 0.00855126, 0.699896, -0.0085519, -0.00844679, 0.0086551, 0.699896, -0.000143051, 0.765629, -0.144884)
+transform = Transform3D(0.699897, -0.00844679, 0.008551255, 0.008551261, 0.6998961, -0.008551902, -0.008446805, 0.008655101, 0.69989604, 0.02085917, 0.71788526, -0.1305851)
 shape = SubResource("CapsuleShape3D_e4l8r")
 
 [node name="camera" type="Node3D" parent="Player"]
