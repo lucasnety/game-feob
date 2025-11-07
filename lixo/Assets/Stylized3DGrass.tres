@@ -7,9 +7,9 @@ frequency = 0.005
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cpywb"]
+noise = SubResource("FastNoiseLite_txcs8")
 seamless = true
 seamless_blend_skirt = 0.3
-noise = SubResource("FastNoiseLite_txcs8")
 
 [resource]
 render_priority = 0
