@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0u6y37hrni0a"]
+[gd_scene load_steps=15 format=3 uid="uid://b0u6y37hrni0a"]
 
 [ext_resource type="Script" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://divsx5u3jbv77" path="res://inventario/inventory_interface.gd" id="8_ew46v"]
 [ext_resource type="PackedScene" uid="uid://xyrbwqk41xir" path="res://inventario/inventory.tscn" id="9_e4l8r"]
 [ext_resource type="Script" uid="uid://dhy1nbin037xg" path="res://scripts_personagens/combat_system.gd" id="9_nm60e"]
+[ext_resource type="Script" uid="uid://c3pds2x2kwnid" path="res://scripts_personagens/attack_controller.gd" id="10_gj8fg"]
 
 [sub_resource type="Resource" id="Resource_e4l8r"]
 script = ExtResource("3_js5op")
@@ -32,7 +33,7 @@ equip_inventory_data = SubResource("Resource_e4l8r")
 transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.699897, -0.00844679, 0.008551255, 0.008551261, 0.6998961, -0.008551902, -0.008446805, 0.008655101, 0.69989604, 0.02085917, 0.71788526, -0.1305851)
+transform = Transform3D(0.8848695, -0.010618819, 0.010750191, 0.010811235, 0.8798686, -0.0107509475, -0.010679191, 0.010880688, 0.8798686, 0.0031456638, 0.71798503, -0.036744874)
 shape = SubResource("CapsuleShape3D_e4l8r")
 
 [node name="camera" type="Node3D" parent="Player"]
@@ -63,6 +64,9 @@ script = ExtResource("5_ew46v")
 
 [node name="CombatSystem" type="Node3D" parent="Player"]
 script = ExtResource("9_nm60e")
+
+[node name="AttackController" type="Node3D" parent="Player"]
+script = ExtResource("10_gj8fg")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

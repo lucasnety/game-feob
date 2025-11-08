@@ -22,6 +22,7 @@ const JUMP_VELOCITY: float = 4.5
 var is_jumping: bool = false
 var camera_travada: bool = false
 var modo_combate: bool = false
+var is_attacking: bool = false  # 🔹 nova flag — indica quando o personagem está atacando
 
 func _ready():
 	# 🔹 Registra globalmente
@@ -107,6 +108,10 @@ func _physics_process(delta: float) -> void:
 
 	# --- Move ---
 	move_and_slide()
+
+	# --- ⛔ Bloqueia outras animações se estiver atacando ---
+	if is_attacking:
+		return  # não muda animação durante o ataque
 
 	# --- Animações ---
 	if modo_combate:

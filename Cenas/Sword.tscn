@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://217salcknymo"]
+
+[ext_resource type="PackedScene" uid="uid://daf2t1a4naa8m" path="res://espadas_iventario_loja/spada_tumulo_do_lobo.glb" id="1_reexh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tt53q"]
+
+[node name="Sword" type="Node3D"]
+
+[node name="Espada_lobo" parent="." instance=ExtResource("1_reexh")]
+transform = Transform3D(0.1800747, 0.21887493, -0.6291, 0.6598642, -0.14749713, 0.13756387, -0.09084228, -0.6375252, -0.24780905, -0.06325054, 0, 0.37932086)
+
+[node name="Area3D" type="Area3D" parent="Espada_lobo"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Espada_lobo/Area3D"]
+transform = Transform3D(0.3099921, 1.3322423, 0, -0.19546947, 2.112783, 0, 0, 0, 0.13153157, 0, 1.4838963, 0)
+shape = SubResource("BoxShape3D_tt53q")
