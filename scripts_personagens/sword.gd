@@ -1,6 +1,9 @@
 extends Node3D
 
 @export var damage: int = 25
+@export var crit_chance: float = 0.2  # 20% de chance
+@export var crit_multiplier: float = 2.0  # Dano crítico = 2x
+
 @onready var area: Area3D = $Espada_lobo/Area3D
 
 func _ready():
@@ -27,5 +30,18 @@ func attack(direction: Vector3 = Vector3.FORWARD):
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
-		body.take_damage(damage)
-		print("💥 Acertou:", body.name)
+		var final_damage = damage
+		var is_crit = false
+
+		# 🔹 Checa chance crítica
+		if randf() <= crit_chance:
+			final_damage *= crit_multiplier
+			is_crit = true
+
+		# 🔹 Passa o flag de crítico corretamente
+		body.take_damage(final_damage, is_crit)
+
+		if is_crit:
+			print("💥 Acertou CRÍTICO:", body.name, "| Dano:", final_damage)
+		else:
+			print("💥 Acertou:", body.name, "| Dano:", final_damage)

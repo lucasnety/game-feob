@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1p2frvna1mix"]
+
+[ext_resource type="Script" uid="uid://hnpkt40yjpy0" path="res://scripts_personagens/label.gd" id="1_w7cbj"]
+
+[node name="DamageNumber" type="Node3D"]
+script = ExtResource("1_w7cbj")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1.7496095, 0, 0, 0, 1.5730493, 0, 0, 0, 0.8855436, 0, 3.0800185, 0)
+text = "\"0\""

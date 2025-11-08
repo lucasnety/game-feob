@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2f17mxk58as"]
+
+[ext_resource type="Script" uid="uid://coxqquge2yp0c" path="res://Cenas/progresbar.gd" id="1_hhnmd"]
+
+[node name="HealthBar3D" type="Node3D"]
+script = ExtResource("1_hhnmd")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(477, 512)
+size_2d_override = Vector2i(910, 0)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+min_value = 1.0
+value = 100.0
+show_percentage = false
