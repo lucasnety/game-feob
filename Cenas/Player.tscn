@@ -51,6 +51,8 @@ spring_length = 2.5
 [node name="Camera3D" type="Camera3D" parent="Player/camera/horizontal/vertical/SpringArm3D"]
 transform = Transform3D(0.806148, -1.39698e-09, 0, 9.31323e-10, 0.702847, 0, 0, 0, 0.75164, -0.033077, 0.000186205, 0.0901608)
 
+[node name="RayCast3D" type="RayCast3D" parent="Player/camera/horizontal/vertical/SpringArm3D/Camera3D"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
 [node name="Control" type="Control" parent="Player/CanvasLayer"]

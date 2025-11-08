@@ -10,14 +10,19 @@ func _ready():
 	else:
 		push_error("⚠️ Area3D não encontrada!")
 
-func attack():
-	print("🗡️ Espada atacando:", name)
+# 🔹 Agora attack recebe a direção do ataque
+func attack(direction: Vector3 = Vector3.FORWARD):
+	print("🗡️ Espada atacando:", name, " | Direção:", direction)
+
 	if area == null:
+		push_error("⚠️ Area3D não encontrada!")
 		return
 
+	# 🔹 Ativa hitbox temporariamente
 	area.monitoring = true
 	await get_tree().create_timer(0.2).timeout
 	area.monitoring = false
+
 	print("💤 Ataque encerrado")
 
 func _on_body_entered(body):
