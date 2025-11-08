@@ -113,31 +113,31 @@ func _physics_process(delta: float) -> void:
 	if is_attacking:
 		return  # não muda animação durante o ataque
 
-	# --- Animações ---
+	# --- Animações (suavizadas com blend_time 0.2) ---
 	if modo_combate:
 		if is_jumping:
-			animator.play("movimentation/jump_espada")
+			animator.play("movimentation/jump_espada", 0.2)
 			if is_on_floor():
 				is_jumping = false
 		elif direction.length() > 0:
 			if current_speed == RUN_SPEED:
-				animator.play("movimentation/correr_espada")
+				animator.play("movimentation/correr_espada", 0.2)
 			else:
-				animator.play("movimentation/andar_espada")
+				animator.play("movimentation/andar_espada", 0.2)
 		else:
-			animator.play("movimentation/parado")
+			animator.play("movimentation/parado_sword", 0.2)
 	else:
 		if is_jumping:
-			animator.play("movimentation/pular")
+			animator.play("movimentation/pular", 0.2)
 			if is_on_floor():
 				is_jumping = false
 		elif direction.length() > 0:
 			if current_speed == RUN_SPEED:
-				animator.play("movimentation/correr_rapido")
+				animator.play("movimentation/correr_rapido", 0.2)
 			else:
-				animator.play("movimentation/andar")
+				animator.play("movimentation/andar", 0.2)
 		else:
-			animator.play("movimentation/parado")
+			animator.play("movimentation/parado", 0.2)
 
 
 # --- Função chamada quando o portal trava ou destrava a câmera ---
