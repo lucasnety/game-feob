@@ -22,15 +22,13 @@ const JUMP_VELOCITY: float = 4.5
 var is_jumping: bool = false
 var camera_travada: bool = false
 var modo_combate: bool = false
-var is_attacking: bool = false  # 🔹 nova flag — indica quando o personagem está atacando
+var is_attacking: bool = false
 
 func _ready():
-	# 🔹 Registra globalmente
 	PlayerManager.player = self
 
-	# 🔹 Conecta automaticamente ao portal (qualquer um na cena)
-	var portals = get_tree().get_nodes_in_group("portal")
-	for portal in portals:
+	# 🔹 Conecta automaticamente a portais que travam câmera
+	for portal in get_tree().get_nodes_in_group("portal"):
 		if portal.has_signal("camera_locked"):
 			portal.camera_locked.connect(_on_camera_locked_from_portal)
 
@@ -52,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	# --- Alternar modo de combate (TAB) ---
 	if Input.is_action_just_pressed("alterar_modo") and not camera_travada:
 		modo_combate = !modo_combate
-
 		if modo_combate:
 			if back_attachment:
 				back_attachment.visible = false
@@ -99,21 +96,31 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * current_speed
 
 	# --- Rotação ---
-	if direction != Vector3.ZERO:
+	if modo_combate:
+		# ⚔️ Em modo combate: personagem sempre olha na direção da câmera (de costas pra ela)
+		var camera_yaw = camera_horizontal.global_transform.basis.get_euler().y
 		$personagem_lupus.rotation.y = lerp_angle(
 			$personagem_lupus.rotation.y,
-			atan2(direction.x, direction.z),
-			delta * 5
+			camera_yaw + PI, # 🔁 Corrige inversão — fica de costas pra câmera
+			delta * 10
 		)
+	else:
+		# 🎮 Em modo normal: só gira quando anda
+		if direction != Vector3.ZERO:
+			$personagem_lupus.rotation.y = lerp_angle(
+				$personagem_lupus.rotation.y,
+				atan2(direction.x, direction.z),
+				delta * 5
+			)
 
-	# --- Move ---
+	# --- Move personagem ---
 	move_and_slide()
 
 	# --- ⛔ Bloqueia outras animações se estiver atacando ---
 	if is_attacking:
-		return  # não muda animação durante o ataque
+		return
 
-	# --- Animações (suavizadas com blend_time 0.2) ---
+	# --- Animações (com blend_time 0.2) ---
 	if modo_combate:
 		if is_jumping:
 			animator.play("movimentation/jump_espada", 0.2)
@@ -140,6 +147,6 @@ func _physics_process(delta: float) -> void:
 			animator.play("movimentation/parado", 0.2)
 
 
-# --- Função chamada quando o portal trava ou destrava a câmera ---
+# --- Portal trava/destrava câmera ---
 func _on_camera_locked_from_portal(is_locked: bool) -> void:
 	camera_travada = is_locked
