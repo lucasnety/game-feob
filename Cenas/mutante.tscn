@@ -13,7 +13,7 @@ size = Vector3(1, 1.1690674, 1)
 
 [node name="Enemy3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_mpctp")
-max_hp = 2000
+max_hp = 900
 damage_number_scene = ExtResource("2_us4n3")
 
 [node name="mutantrex" parent="Enemy3D" instance=ExtResource("2_4b3r4")]
