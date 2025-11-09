@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hnpkt40yjpy0" path="res://scripts_personagens/label.gd" id="1_w7cbj"]
 
 [node name="DamageNumber" type="Node3D"]
+transform = Transform3D(1.61, 0, 0, 0, 1.61, 0, 0, 0, 1.61, 0, 0, 0)
 script = ExtResource("1_w7cbj")
 
 [node name="Label3D" type="Label3D" parent="."]
