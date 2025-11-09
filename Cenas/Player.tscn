@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://cjapxbycb0phv"
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_e4l8r")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1.22169, 0.000139102, 0.230609, 0.000121272, 1.42278, -0.00148923, -0.215017, 0.00159262, 1.31028, 0, 0, 0)
 script = ExtResource("1_vwqu2")
 inventory_data = ExtResource("2_vwqu2")

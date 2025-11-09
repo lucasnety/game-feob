@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc1ga4ghpkjhd"]
+
+[ext_resource type="PackedScene" uid="uid://df0xs26vaqytx" path="res://material_inimigos/Mutant Idle.fbx" id="1_wfev7"]
+[ext_resource type="Animation" uid="uid://4gsss4thr53l" path="res://personagens/animations/mutante_parado.res" id="2_18qow"]
+[ext_resource type="Animation" uid="uid://c7ln0csns5qv0" path="res://personagens/animations/mutante_soco.res" id="3_hhdff"]
+[ext_resource type="Animation" uid="uid://c8vtrnl1dao3r" path="res://personagens/animations/mutante_caminhar.res" id="4_s8k3v"]
+[ext_resource type="Animation" uid="uid://da7wtylx0mk08" path="res://personagens/animations/mutante_jumpattack.res" id="5_txe68"]
+[ext_resource type="Animation" uid="uid://c02abfn1lg2sc" path="res://personagens/animations/mutante_morrer.res" id="6_sd3fp"]
+[ext_resource type="Animation" uid="uid://cq68ow17rpqe1" path="res://personagens/animations/naosei.res" id="7_yuvx2"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fn7fi"]
+_data = {
+&"mutante_caminhar": ExtResource("4_s8k3v"),
+&"mutante_jumpattack": ExtResource("5_txe68"),
+&"mutante_morrer": ExtResource("6_sd3fp"),
+&"mutante_parado": ExtResource("2_18qow"),
+&"mutante_soco": ExtResource("3_hhdff"),
+&"mutante_socoforte": ExtResource("7_yuvx2")
+}
+
+[node name="Mutant Idle" instance=ExtResource("1_wfev7")]
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/0/position = Vector3(0.0037171075, 0.88094133, -0.001866132)
+bones/0/rotation = Quaternion(0.040721614, -0.005173314, 0.021604605, 0.99892354)
+bones/1/rotation = Quaternion(0.11250589, 0.014947347, -0.0032587666, 0.9935333)
+bones/2/rotation = Quaternion(0.012478477, 0.025126593, -0.007819713, 0.9995758)
+bones/3/rotation = Quaternion(0.0048453105, 0.026073199, -0.0059774797, 0.99963045)
+bones/4/rotation = Quaternion(-0.043723892, -0.0490166, 0.027675034, 0.9974566)
+bones/5/rotation = Quaternion(-0.053358916, -0.033445463, -0.017340515, 0.9978645)
+bones/7/rotation = Quaternion(0.56166047, 0.44234535, -0.4889129, 0.49983233)
+bones/8/rotation = Quaternion(0.5336853, 0.009361235, 0.042430393, 0.8445662)
+bones/9/rotation = Quaternion(0.028666697, 0.35564908, 0.1238666, 0.9259315)
+bones/11/rotation = Quaternion(0.5637342, -0.5000019, 0.5098623, 0.415021)
+bones/12/rotation = Quaternion(0.45522362, 0.18172748, -0.21198243, 0.8454644)
+bones/13/rotation = Quaternion(0.020692317, -0.20240971, -0.22673705, 0.9524666)
+bones/14/rotation = Quaternion(0.05343289, 0.08925509, 0.17439263, 0.9791659)
+bones/15/rotation = Quaternion(0.056242667, 0.07388187, -0.19465366, 0.9764672)
+bones/16/rotation = Quaternion(0.15029408, -0.07007075, -0.020249428, 0.98594713)
+bones/17/rotation = Quaternion(0.07773039, -0.042017963, -0.009649545, 0.9960419)
+bones/19/rotation = Quaternion(0.31156892, 0.65803933, -0.0494268, 0.68371487)
+bones/20/rotation = Quaternion(0.044024333, 0.14403619, 0.2524279, 0.95582193)
+bones/21/rotation = Quaternion(0.035318594, 0.12193649, 0.20140846, 0.97124606)
+bones/23/rotation = Quaternion(0.099438526, -0.04047101, -0.4881857, 0.86611134)
+bones/24/rotation = Quaternion(0.0323131, 0.07902526, 0.20023406, 0.9760212)
+bones/25/rotation = Quaternion(-0.020564672, -0.030005928, 0.11992012, 0.99211687)
+bones/27/rotation = Quaternion(0.023247253, 0.35199288, 0.9337915, -0.059950773)
+bones/28/rotation = Quaternion(-0.5850133, 0.05930948, -0.054790717, 0.8069944)
+bones/29/rotation = Quaternion(0.34898776, -0.040140424, -0.06988139, 0.9336556)
+bones/30/rotation = Quaternion(0.5782689, 0.035398822, 0.020627616, 0.81481683)
+bones/32/rotation = Quaternion(-0.038090732, 0.16789754, 0.98332375, 0.05859922)
+bones/33/rotation = Quaternion(-0.3753658, -0.04696676, 0.0677322, 0.9232047)
+bones/34/rotation = Quaternion(0.6395331, 0.011969918, -0.042357866, 0.7675025)
+bones/35/rotation = Quaternion(0.27948028, 0.02884574, -0.0658223, 0.9574582)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"mutante": SubResource("AnimationLibrary_fn7fi")
+}
