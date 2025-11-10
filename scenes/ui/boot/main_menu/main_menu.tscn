@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://uay4xehegyii"]
+[gd_scene load_steps=7 format=3 uid="uid://uay4xehegyii"]
 
 [ext_resource type="Texture2D" uid="uid://d0416wocko68b" path="res://assets/ui/images/main_menu/menu1_bg.png" id="1_g1nh3"]
+[ext_resource type="FontFile" uid="uid://b6ssv7fvm3lwg" path="res://assets/ui/fonts/IMFellEnglishSC-Regular.ttf" id="2_af7st"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af7st"]
+bg_color = Color(0.168627, 0.101961, 0.0627451, 1)
+border_color = Color(0.878431, 0.819608, 0.611765, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aoxxl"]
+bg_color = Color(0.227451, 0.141176, 0.0745098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.831373, 0.72549, 0.427451, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip2q8"]
+bg_color = Color(0.168627, 0.101961, 0.0627451, 1)
+border_color = Color(0.54902, 0.454902, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ympc8"]
+bg_color = Color(0.168627, 0.101961, 0.0627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.639216, 0.54902, 0.356863, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 2
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,18 +58,55 @@ grow_vertical = 2
 texture = ExtResource("1_g1nh3")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.5
+offset_top = 50.0
+offset_right = 236.5
+offset_bottom = 203.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_af7st")
+theme_override_font_sizes/font_size = 150
+text = "LIMIAR"
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -100.0
+offset_top = -44.0
+offset_right = 100.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "O menu do jogo será aqui!"
+theme_override_constants/separation = 30
+
+[node name="BtnNovoJogo" type="Button" parent="MenuContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympc8")
+text = "Novo Jogo"
+
+[node name="BtnContinuar" type="Button" parent="MenuContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympc8")
+text = "Continuar"
+
+[node name="BtnSair" type="Button" parent="MenuContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ympc8")
+text = "Sair"
