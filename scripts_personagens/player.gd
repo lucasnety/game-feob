@@ -17,6 +17,7 @@ const JUMP_VELOCITY: float = 4.5
 @onready var camera_horizontal = $camera/horizontal
 @onready var hand_attachment = $personagem_lupus/Skeleton3D/hand_attachment
 @onready var back_attachment = $personagem_lupus/Skeleton3D/back_attachment
+@onready var ray_cast_3d: RayCast3D = $camera/horizontal/vertical/SpringArm3D/Camera3D/RayCast3D
 
 # --- Flags ---
 var is_jumping: bool = false
@@ -70,6 +71,9 @@ func _physics_process(delta: float) -> void:
 	if camera_travada:
 		return
 
+	if Input.is_action_just_pressed("interact"):
+		interact()
+
 	# --- Input de movimento ---
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction: Vector3 = Vector3(input_dir.x, 0.0, input_dir.y)
@@ -120,6 +124,7 @@ func _physics_process(delta: float) -> void:
 	if is_attacking:
 		return
 
+
 	# --- Animações (com blend_time 0.2) ---
 	if modo_combate:
 		if is_jumping:
@@ -150,3 +155,8 @@ func _physics_process(delta: float) -> void:
 # --- Portal trava/destrava câmera ---
 func _on_camera_locked_from_portal(is_locked: bool) -> void:
 	camera_travada = is_locked
+
+
+func interact() -> void:
+	if ray_cast_3d.is_colliding():
+		ray_cast_3d.get_collider().player_interact()

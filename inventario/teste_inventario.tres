@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=12 format=3 uid="uid://c1h837rgvhf2w"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=8 format=3 uid="uid://c1h837rgvhf2w"]
 
 [ext_resource type="Script" uid="uid://bn2ei8xjyorl2" path="res://inventario/inventory_data.gd" id="1_kmuad"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="2_f8h0n"]
 [ext_resource type="Resource" uid="uid://ccsmh3q1lp0aw" path="res://item/items/moeda.tres" id="3_f8h0n"]
 [ext_resource type="Resource" uid="uid://dqxmmttye246v" path="res://item/items/espada_basica.tres" id="4_33wl4"]
-[ext_resource type="Resource" uid="uid://c6f8eeegjl2vt" path="res://item/items/espada_lobo.tres" id="5_vf7xe"]
-[ext_resource type="Resource" uid="uid://dbxrjh0lokypf" path="res://item/items/espada_deduses.tres" id="6_0k4xy"]
 
 [sub_resource type="Resource" id="Resource_76oa2"]
 script = ExtResource("2_f8h0n")
@@ -19,18 +17,6 @@ item_data = ExtResource("4_33wl4")
 quantidade = 1
 metadata/_custom_type_script = "uid://csryyvm0ucsy6"
 
-[sub_resource type="Resource" id="Resource_o8ojv"]
-script = ExtResource("2_f8h0n")
-item_data = ExtResource("5_vf7xe")
-quantidade = 1
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_pq8oq"]
-script = ExtResource("2_f8h0n")
-item_data = ExtResource("6_0k4xy")
-quantidade = 1
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
 [sub_resource type="Resource" id="Resource_f8h0n"]
 script = ExtResource("2_f8h0n")
 item_data = ExtResource("3_f8h0n")
@@ -39,5 +25,5 @@ metadata/_custom_type_script = "uid://csryyvm0ucsy6"
 
 [resource]
 script = ExtResource("1_kmuad")
-slot_datas = Array[ExtResource("2_f8h0n")]([SubResource("Resource_76oa2"), SubResource("Resource_wn44t"), SubResource("Resource_o8ojv"), SubResource("Resource_pq8oq"), null, null, null, null, null, null, null, SubResource("Resource_f8h0n")])
+slot_datas = Array[ExtResource("2_f8h0n")]([SubResource("Resource_76oa2"), SubResource("Resource_wn44t"), null, null, null, null, null, null, null, null, null, SubResource("Resource_f8h0n")])
 metadata/_custom_type_script = "uid://bn2ei8xjyorl2"

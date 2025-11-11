@@ -1,11 +1,13 @@
 extends Control
 
 var grabbed_slot_data: SlotData = null
+var external_inventory_owner
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var equip_inventory: PanelContainer = $EquipInventory
 @onready var moedas_label: Label = $"../MoedasLabel"
+@onready var external_inventory: PanelContainer = $ExternalInventory
 
 
 func _ready() -> void:
@@ -15,30 +17,56 @@ func _ready() -> void:
 	else:
 		push_warning("GrabbedSlot não encontrado! Verifique o nome do Node.")
 
+
 func _physics_process(delta: float) -> void:
 	# Só atualiza a posição se o Node existir e estiver visível
 	if grabbed_slot and grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
 
+
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
-	
 	inventory_data.inventory_updated.connect(update_moedas_display)
 	update_moedas_display(inventory_data)
-	
+
 	if inventory_data:
 		inventory_data.inventory_interact.connect(on_inventory_interact)
 		if player_inventory:
 			player_inventory.set_inventory_data(inventory_data)
 		else:
 			push_warning("PlayerInventory não encontrado! Verifique o Node.")
-			
+
+
 func set_equip_inventory_data(inventory_data: InventoryData) -> void:
 	if inventory_data:
 		inventory_data.inventory_interact.connect(on_inventory_interact)
 		if equip_inventory:
 			equip_inventory.set_inventory_data(inventory_data)
 		else:
-			push_warning("PlayerInventory não encontrado! Verifique o Node.")			
+			push_warning("PlayerInventory não encontrado! Verifique o Node.")
+
+
+func set_external_inventory(_external_inventory_owner) -> void:
+	external_inventory_owner = _external_inventory_owner
+	var inventory_data = external_inventory_owner.inventory_data
+
+	if inventory_data:
+		inventory_data.inventory_interact.connect(on_inventory_interact)
+		if external_inventory:
+			external_inventory.set_inventory_data(inventory_data)
+		else:
+			push_warning("external_inventory não encontrado! Verifique o Node.")
+
+		external_inventory.show()
+
+
+func clear_external_inventory() -> void:
+	if external_inventory_owner:
+		var inventory_data = external_inventory_owner.inventory_data
+		inventory_data.inventory_interact.disconnect(on_inventory_interact)
+		external_inventory.clear_inventory_data(inventory_data)
+		external_inventory.hide()
+		external_inventory_owner = null
+
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	if not inventory_data:
@@ -56,6 +84,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 
 	update_grabbed_slot()
 
+
 func update_grabbed_slot() -> void:
 	if not grabbed_slot:
 		return
@@ -65,12 +94,9 @@ func update_grabbed_slot() -> void:
 		grabbed_slot.set_slot_data(grabbed_slot_data)
 	else:
 		grabbed_slot.hide()
-		
+
+
 func update_moedas_display(inventory_data: InventoryData) -> void:
-	
 	if is_instance_valid(moedas_label):
-		
 		var total_gold = inventory_data.get_total_moedas()
-		
-   
 		moedas_label.text = "moedas: " + str(total_gold)

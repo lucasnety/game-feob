@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://b0u6y37hrni0a"]
 
-[ext_resource type="Script" path="res://Cenas/player.gd" id="1_e4l8r"]
+[ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
 [ext_resource type="Resource" uid="uid://c1h837rgvhf2w" path="res://inventario/teste_inventario.tres" id="2_vwqu2"]
-[ext_resource type="Script" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
+[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
@@ -33,7 +33,7 @@ equip_inventory_data = SubResource("Resource_e4l8r")
 transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.8848695, -0.010618819, 0.010750191, 0.010811235, 0.8798686, -0.0107509475, -0.010679191, 0.010880688, 0.8798686, 0.0031456638, 0.71798503, -0.036744874)
+transform = Transform3D(0.88487, -0.0106188, 0.0107502, 0.0108112, 0.879869, -0.0107509, -0.0106792, 0.0108807, 0.879869, 0.00314566, 0.717985, -0.0367449)
 shape = SubResource("CapsuleShape3D_e4l8r")
 
 [node name="camera" type="Node3D" parent="Player"]
@@ -52,6 +52,8 @@ spring_length = 2.5
 transform = Transform3D(0.806148, -1.39698e-09, 0, 9.31323e-10, 0.702847, 0, 0, 0, 0.75164, -0.033077, 0.000186205, 0.0901608)
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/camera/horizontal/vertical/SpringArm3D/Camera3D"]
+target_position = Vector3(15, 2, -50)
+collision_mask = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
@@ -88,6 +90,13 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
+
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("9_e4l8r")]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 257.0
+offset_right = 656.0
+offset_bottom = 297.0
 
 [node name="EquipInventory" parent="UI/InventoryInterface" instance=ExtResource("9_e4l8r")]
 layout_mode = 0

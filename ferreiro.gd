@@ -1,6 +1,9 @@
 extends Node3D  # ou CharacterBody3D se precisar de física
 
+signal toggle_inventory(external_inventory_owner)
+
 @export var npc_name: String = "Ferreiro"
+@export var inventory_data: InventoryData
 
 # animação
 @onready var animator = $ferreiro/AnimationPlayer
@@ -38,3 +41,6 @@ func _on_animation_finished(anim_name: String) -> void:
 func set_outline(active: bool) -> void:
 	if material != null:
 		material.outline_enabled = active
+
+func player_interact() -> void:
+	toggle_inventory.emit(self)		
