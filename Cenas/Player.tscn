@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0u6y37hrni0a"]
+[gd_scene load_steps=17 format=3 uid="uid://b0u6y37hrni0a"]
 
 [ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://xyrbwqk41xir" path="res://inventario/inventory.tscn" id="9_e4l8r"]
 [ext_resource type="Script" uid="uid://dhy1nbin037xg" path="res://scripts_personagens/combat_system.gd" id="9_nm60e"]
 [ext_resource type="Script" uid="uid://c3pds2x2kwnid" path="res://scripts_personagens/attack_controller.gd" id="10_gj8fg"]
+[ext_resource type="Texture2D" uid="uid://bm8naak2gprad" path="res://lixo/Design sem nome (2).png" id="13_v0sdg"]
 
 [sub_resource type="Resource" id="Resource_e4l8r"]
 script = ExtResource("3_js5op")
@@ -19,6 +20,9 @@ slot_datas = Array[ExtResource("4_ew46v")]([null])
 metadata/_custom_type_script = "uid://cjapxbycb0phv"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4l8r"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v0sdg"]
+specular_color = Color(1, 0, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_e4l8r")
@@ -114,3 +118,14 @@ offset_right = -18.0
 offset_bottom = 23.0
 grow_horizontal = 0
 text = "moedas: "
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD"]
+offset_left = 409.0
+offset_top = 474.0
+offset_right = 1433.0
+offset_bottom = 1498.0
+scale = Vector2(0.636834, 0.53288)
+texture_under = SubResource("CanvasTexture_v0sdg")
+texture_over = ExtResource("13_v0sdg")

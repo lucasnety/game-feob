@@ -74,7 +74,7 @@ bones/23/position = Vector3(2.77556e-17, 0.185287, 1.38778e-17)
 bones/23/rotation = Quaternion(0.282835, 0.0881714, -0.0171094, 0.954954)
 
 [node name="back_attachment" type="BoneAttachment3D" parent="Skeleton3D" index="1"]
-transform = Transform3D(0.929301, -0.248005, -0.273665, 0.123938, 0.907439, -0.401489, 0.347906, 0.339187, 0.874021, -0.0412767, 1.14143, -0.0299693)
+transform = Transform3D(0.929301, -0.248005, -0.273665, 0.123938, 0.907439, -0.40149, 0.347906, 0.339188, 0.874021, -0.0412767, 1.14143, -0.0299692)
 bone_name = "mixamorig_Spine2"
 bone_idx = 3
 
@@ -82,7 +82,7 @@ bone_idx = 3
 transform = Transform3D(-0.25457, 0.622163, -0.155589, -0.629054, -0.274827, -0.0697289, -0.124844, 0.11612, 0.668603, -0.841, 0.194, -0.33)
 
 [node name="hand_attachment" type="BoneAttachment3D" parent="Skeleton3D" index="2"]
-transform = Transform3D(0.0854272, 0.454076, 0.886858, 0.985319, -0.170556, -0.00758615, 0.147814, 0.874486, -0.46198, -0.15004, 0.886195, 0.21143)
+transform = Transform3D(0.085427, 0.454077, 0.886858, 0.985319, -0.170554, -0.00758678, 0.147812, 0.874486, -0.46198, -0.15004, 0.886196, 0.211431)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 

@@ -5,25 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://c1p2frvna1mix" path="res://Cenas/DamageNumber.tscn" id="2_us4n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4b3r4"]
-size = Vector3(1, 2.608368, 0.8421631)
+size = Vector3(1, 2.60837, 0.842163)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cov61"]
-size = Vector3(1, 1.1690674, 1)
+size = Vector3(1, 1.16907, 1)
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Enemy3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062204957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062205)
 script = ExtResource("1_mpctp")
-max_hp = 150
+max_hp = 600
 damage_number_height = 0.0
 damage_number_scene = ExtResource("2_us4n3")
 
 [node name="mutantrex" parent="Enemy3D" instance=ExtResource("2_4b3r4")]
-transform = Transform3D(2.32, 0, 0, 0, 2.32, 0, 0, 0, 2.32, -0.00070637465, -0.004348874, 0.0020394325)
+transform = Transform3D(2.32, 0, 0, 0, 2.32, 0, 0, 0, 2.32, -0.000706375, -0.00434887, 0.00203943)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy3D"]
-transform = Transform3D(1.51, 0, 0, 0, 1.4914094, -0.23621605, 0, 0.23621605, 1.4914094, 0.014790058, 2.031467, 0.28334716)
+transform = Transform3D(1.51, 0, 0, 0, 1.49141, -0.236216, 0, 0.236216, 1.49141, 0.0147901, 2.03147, 0.283347)
 shape = SubResource("BoxShape3D_4b3r4")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy3D"]
@@ -31,7 +31,7 @@ shape = SubResource("BoxShape3D_4b3r4")
 [node name="Area3D" type="Area3D" parent="Enemy3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99998105, -0.006160973, 0, 0.006160973, 0.99998105, 0, 0.6690248, 1.9973055)
+transform = Transform3D(1, 0, 0, 0, 0.999981, -0.00616097, 0, 0.00616097, 0.999981, 0, 0.669025, 1.99731)
 shape = SubResource("BoxShape3D_cov61")
 
 [node name="Timer" type="Timer" parent="."]
