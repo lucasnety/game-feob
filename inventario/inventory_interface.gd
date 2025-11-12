@@ -3,6 +3,7 @@ extends Control
 var grabbed_slot_data: SlotData = null
 var external_inventory_owner
 
+
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var equip_inventory: PanelContainer = $EquipInventory
@@ -72,13 +73,32 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	if not inventory_data:
 		return
 
+	# Check if this is the external inventory
+	var is_external = false
+	if external_inventory_owner and external_inventory_owner.inventory_data:
+		is_external = inventory_data == external_inventory_owner.inventory_data
+
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
-			grabbed_slot_data = inventory_data.grab_slot_data(index)
+			if is_external:
+				var slot_data: SlotData = inventory_data.slot_datas[index]
+				if slot_data and slot_data.item_data:
+					if try_buy_item(slot_data):
+						# Purchase successful → grab the item
+						grabbed_slot_data = inventory_data.grab_slot_data(index)
+					else:
+						print("❌ Not enough coins to buy this item!")
+						return
+			else:
+				# Normal inventory grab
+				grabbed_slot_data = inventory_data.grab_slot_data(index)
+
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+
 		[null, MOUSE_BUTTON_RIGHT]:
 			pass
+
 		[_, MOUSE_BUTTON_RIGHT]:
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 
@@ -100,3 +120,52 @@ func update_moedas_display(inventory_data: InventoryData) -> void:
 	if is_instance_valid(moedas_label):
 		var total_gold = inventory_data.get_total_moedas()
 		moedas_label.text = "moedas: " + str(total_gold)
+
+
+func try_buy_item(slot_data: SlotData) -> bool:
+	if not slot_data or not slot_data.item_data:
+		return false
+
+	# --- Determine item price safely ---
+	var item_price := 0
+
+	# Check if the item has a 'preco' or 'price' variable
+	
+	if "price" in slot_data.item_data:
+		item_price = int(slot_data.item_data.price)
+
+	if item_price <= 0:
+		return true  # free item or price not set
+
+	# --- Access player's inventory ---
+	var player_data: InventoryData = player_inventory.inventory_data
+	if not player_data:
+		push_warning("⚠️ Player inventory data not found.")
+		return false
+
+	var total_coins = player_data.get_total_moedas()
+	if total_coins < item_price:
+		print("❌ Not enough coins! Need:", item_price, "Have:", total_coins)
+		return false
+
+	# --- Deduct coins ---
+	var remaining = item_price
+	for i in range(player_data.slot_datas.size()):
+		var coin_slot = player_data.slot_datas[i]
+		if coin_slot and coin_slot.item_data and coin_slot.item_data.nome == "moeda":
+			var to_remove = min(coin_slot.quantidade, remaining)
+			coin_slot.quantidade -= to_remove
+			remaining -= to_remove
+
+			if coin_slot.quantidade <= 0:
+				player_data.slot_datas[i] = null
+
+			if remaining <= 0:
+				break
+
+	# --- Update inventory and UI ---
+	player_data.inventory_updated.emit(player_data)
+	update_moedas_display(player_data)
+
+	print(" Purchased", slot_data.item_data.nome, "for", item_price, "coins.")
+	return true
