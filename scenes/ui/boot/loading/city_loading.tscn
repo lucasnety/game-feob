@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvtitf5ypnqsh"]
+
+[ext_resource type="Script" uid="uid://lemi4f4ghjjc" path="res://scenes/ui/boot/loading/city_loading.gd" id="1_ifmmn"]
+[ext_resource type="Texture2D" uid="uid://v4agj7qq6j41" path="res://assets/ui/images/loading/citty_loading.jpg" id="2_gyydw"]
+[ext_resource type="FontFile" uid="uid://b6ssv7fvm3lwg" path="res://assets/ui/fonts/IMFellEnglishSC-Regular.ttf" id="3_cwo62"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqsja"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.164706, 0.164706, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.305882, 0.803922, 0.768627, 0.25098)
+shadow_size = 4
+
+[node name="CityLoading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ifmmn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gyydw")
+expand_mode = 3
+
+[node name="TitleLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.5
+offset_top = 50.0
+offset_right = 236.5
+offset_bottom = 203.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_cwo62")
+theme_override_font_sizes/font_size = 150
+text = "LIMIAR"
+
+[node name="LoadingText" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -366.0
+offset_right = 154.0
+offset_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, -100)
+theme_override_fonts/font = ExtResource("3_cwo62")
+theme_override_font_sizes/font_size = 45
+text = "Carregando..."
+
+[node name="LoadingBar" type="ProgressBar" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -277.0
+offset_top = -297.0
+offset_right = 323.0
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_dqsja")
