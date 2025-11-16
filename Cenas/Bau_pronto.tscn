@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck1gc4xeow02c"]
+
+[ext_resource type="PackedScene" uid="uid://csgg1dn4ljqfb" path="res://item/items/bau_animacao.glb" id="1_s8dkx"]
+[ext_resource type="Animation" uid="uid://bn3woprjn0t5t" path="res://personagens/animations/bau.res" id="2_lor5y"]
+[ext_resource type="Script" uid="uid://dap7emutc8ifh" path="res://Cenas/bau_pronto.gd" id="2_n7qny"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7qny"]
+_data = {
+&"bau": ExtResource("2_lor5y")
+}
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_s8dkx")]
+script = ExtResource("2_n7qny")
+
+[node name="Skeleton3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Armature_5/GLTF_created_0" index="0"]
+bones/2/rotation = Quaternion(0.70967925, -7.85031e-17, -7.85031e-17, 0.704525)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"bau": SubResource("AnimationLibrary_n7qny")
+}

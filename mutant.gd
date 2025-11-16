@@ -28,6 +28,10 @@ var mesh: MeshInstance3D = null
 
 func _ready():
 	hp = max_hp
+	
+	# ⬇️ AQUI: NPC agora pertence ao grupo Enemy
+	add_to_group("Enemy")
+	
 	if mutant:
 		animator = mutant.get_node_or_null("AnimationPlayer")
 		mesh = mutant.get_node_or_null("MeshInstance3D")
