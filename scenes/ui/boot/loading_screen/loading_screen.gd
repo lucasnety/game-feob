@@ -13,7 +13,7 @@ func _ready():
 
 func simulate_loading():
 	var timer = Timer.new()
-	timer.wait_time = 0.1 # velocidade do carregamento
+	timer.wait_time = 0.2 # velocidade do carregamento
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_tick)
 	add_child(timer)
