@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
-[ext_resource type="Script" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
+[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
 [ext_resource type="Script" uid="uid://bn2ei8xjyorl2" path="res://inventario/inventory_data.gd" id="3_v0sdg"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
 [ext_resource type="Script" uid="uid://dxkqivjwte8vi" path="res://scripts_personagens/crosshair.gd" id="5_ew46v"]
 [ext_resource type="Resource" uid="uid://ccsmh3q1lp0aw" path="res://item/items/moeda.tres" id="5_tcel6"]
-[ext_resource type="Resource" path="res://item/items/espada_basica.tres" id="6_waiaw"]
+[ext_resource type="Resource" uid="uid://dqxmmttye246v" path="res://item/items/espada_basica.tres" id="6_waiaw"]
 [ext_resource type="Script" uid="uid://divsx5u3jbv77" path="res://inventario/inventory_interface.gd" id="8_ew46v"]
 [ext_resource type="PackedScene" uid="uid://xyrbwqk41xir" path="res://inventario/inventory.tscn" id="9_e4l8r"]
 [ext_resource type="Script" uid="uid://dhy1nbin037xg" path="res://scripts_personagens/combat_system.gd" id="9_nm60e"]
@@ -25,6 +25,7 @@ metadata/_custom_type_script = "uid://csryyvm0ucsy6"
 [sub_resource type="Resource" id="Resource_necjj"]
 script = ExtResource("4_ew46v")
 item_data = ExtResource("6_waiaw")
+quantidade = 1
 metadata/_custom_type_script = "uid://csryyvm0ucsy6"
 
 [sub_resource type="Resource" id="Resource_apxsp"]
@@ -48,7 +49,7 @@ metadata/_custom_type_script = "uid://cjapxbycb0phv"
 [sub_resource type="CanvasTexture" id="CanvasTexture_v0sdg"]
 specular_color = Color(1, 0, 1, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 script = ExtResource("1_e4l8r")
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
@@ -152,10 +153,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -148.99997
-offset_top = -205.99997
+offset_left = -149.0
+offset_top = -206.0
 offset_right = 351.0
-offset_bottom = 294.00006
+offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.636834, 0.53288)

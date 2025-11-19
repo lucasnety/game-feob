@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cva7x3q7i343h"]
+[gd_scene load_steps=3 format=3 uid="uid://b77ro7tgrjii5"]
 
 [ext_resource type="PackedScene" uid="uid://csgg1dn4ljqfb" path="res://item/items/bau_animacao.glb" id="1_2j6ff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2j6ff"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_2j6ff")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022439241, 0.027912974, 0.22511554)
+transform = Transform3D(2.07, 0, 0, 0, 2.07, 0, 0, 0, 2.07, 0.0224392, 0.027913, 0.225116)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(7.095, 0, 0, 0, 7.095, 0, 0, 0, 7.095, 0.457434, 1.2975, 0)
+shape = SubResource("BoxShape3D_2j6ff")

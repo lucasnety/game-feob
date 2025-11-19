@@ -13,14 +13,14 @@ size = Vector3(1, 1.16907, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="Enemy3D" type="CharacterBody3D" parent="." groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.062205)
+transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 0.850924, -0.315357, -0.312975)
 script = ExtResource("1_mpctp")
 speed = null
 attack_range = null
 attack_stop_distance = null
 attack_damage = null
 attack_cooldown = null
-max_hp = 25
+max_hp = 400
 damage_number_height = 0.0
 damage_number_scene = ExtResource("2_us4n3")
 
@@ -36,7 +36,7 @@ shape = SubResource("BoxShape3D_4b3r4")
 [node name="Area3D" type="Area3D" parent="Enemy3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999981, -0.00616097, 0, 0.00616097, 0.999981, 0, 0.669025, 1.99731)
+transform = Transform3D(1, 0, 0, 0, 0.999981, -0.00616097, 0, 0.00616097, 0.999981, 0, 2.15999, 1.99731)
 shape = SubResource("BoxShape3D_cov61")
 
 [node name="Timer" type="Timer" parent="."]

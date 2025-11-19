@@ -1,7 +1,7 @@
 extends Area3D
 
 # Cena correta do baú
-var bau_scene: PackedScene = preload("res://Cenas/Bau_pronto.tscn")
+var bau_scene: PackedScene = preload("res://Cenas/Cenabau.tscn"		)
 
 # Marker3D onde o baú vai aparecer
 @onready var spawn_point = $CollisionShape3D/Marker3D
