@@ -18,14 +18,19 @@ const JUMP_VELOCITY: float = 4.5
 @onready var hand_attachment = $personagem_lupus/Skeleton3D/hand_attachment
 @onready var back_attachment = $personagem_lupus/Skeleton3D/back_attachment
 @onready var ray_cast_3d: RayCast3D = $camera/horizontal/vertical/SpringArm3D/Camera3D/RayCast3D
+@onready var shop_audio_1: AudioStreamPlayer3D = $ShopGreetingAudio
+@onready var shop_audio_2: AudioStreamPlayer3D = $ShopGreetingAudio2
+@onready var shop_audio_3: AudioStreamPlayer3D = $ShopGreetingAudio3
 
 # --- Flags ---
 var is_jumping: bool = false
 var camera_travada: bool = false
 var modo_combate: bool = false
 var is_attacking: bool = false
+var loja_aberta: bool = false
 
 func _ready():
+	randomize()  # NECESSÁRIO para o áudio ser aleatório
 	PlayerManager.player = self
 
 	# 🔹 Conecta automaticamente a portais que travam câmera
@@ -34,10 +39,8 @@ func _ready():
 			portal.camera_locked.connect(_on_camera_locked_from_portal)
 
 	# 🔹 Espada começa nas costas
-	if back_attachment:
-		back_attachment.visible = true
-	if hand_attachment:
-		hand_attachment.visible = false
+	if back_attachment: back_attachment.visible = true
+	if hand_attachment: hand_attachment.visible = false
 
 
 func _make_persistent():
@@ -159,4 +162,16 @@ func _on_camera_locked_from_portal(is_locked: bool) -> void:
 
 func interact() -> void:
 	if ray_cast_3d.is_colliding():
-		ray_cast_3d.get_collider().player_interact()
+		var collider = ray_cast_3d.get_collider()
+
+		if not loja_aberta:
+			loja_aberta = true
+
+			var audios = [shop_audio_1, shop_audio_2, shop_audio_3]
+			var chosen_audio: AudioStreamPlayer3D = audios[randi() % audios.size()]
+			if not chosen_audio.playing:
+				chosen_audio.play()
+		else:
+			loja_aberta = false  # apenas fecha, sem áudio
+
+		collider.player_interact()
