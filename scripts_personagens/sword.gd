@@ -15,7 +15,7 @@ func _ready():
 	else:
 		push_error("⚠️ Area3D não encontrada!")
 
-	# Se a espada estiver dentro do Player (o pai dela)
+	# Define o dono da espada (geralmente o Player ou inimigo)
 	owner_body = get_parent()
 
 
@@ -39,9 +39,9 @@ func _on_body_entered(body):
 		print("⛔ Ignorado — dono da espada:", body.name)
 		return
 
-	# ❌ Evita acertar jogadores
-	if body.is_in_group("player"):
-		print("⛔ Ignorado — PLAYER:", body.name)
+	# ❌ Evita acertar players
+	if body.is_in_group("Player") or body.is_in_group("player"):
+		print("⛔ Ignorado — grupo PLAYER:", body.name)
 		return
 
 	# ❌ Evita acertar coisas sem life

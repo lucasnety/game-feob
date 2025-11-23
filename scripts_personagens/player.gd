@@ -8,6 +8,10 @@ extends CharacterBody3D
 var hp: int
 @onready var health_bar = $barra/barra_de_vida
 
+# --- Regeneração ---
+var regen_rate := 0.02  # 4% por segundo
+var regen_timer := 0.0
+
 # --- Sinais ---
 signal toggle_inventory()
 signal camera_locked(is_locked: bool)
@@ -40,7 +44,6 @@ func _ready():
 	PlayerManager.player = self
 	hp = max_hp
 
-	# atualiza barra de vida na inicialização
 	if health_bar:
 		health_bar.max_value = max_hp
 		health_bar.value = max_hp
@@ -60,9 +63,29 @@ func _make_persistent():
 		set_owner(null)
 
 
+# ============================
+# 💚 REGENERAÇÃO DE VIDA
+# ============================
+func _process(delta):
+	if hp <= 0:
+		return
+
+	regen_timer += delta
+	if regen_timer >= 1.0:
+		regen_timer = 0.0
+
+		var regen_amount = int(max_hp * regen_rate)
+		hp += regen_amount
+
+		if hp > max_hp:
+			hp = max_hp
+
+		if health_bar:
+			health_bar.value = hp
+
+
 func _physics_process(delta: float) -> void:
 
-	# --- Alternar modo de combate (TAB) ---
 	if Input.is_action_just_pressed("alterar_modo") and not camera_travada:
 		modo_combate = !modo_combate
 		if modo_combate:
@@ -72,7 +95,6 @@ func _physics_process(delta: float) -> void:
 			back_attachment.visible = true
 			hand_attachment.visible = false
 
-	# --- Inventário ---
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 		camera_travada = !camera_travada
@@ -84,7 +106,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
 
-	# --- Movimento ---
 	var input_dir: Vector2 = Input.get_vector("move_left","move_right","move_forward","move_backward")
 	var direction: Vector3 = Vector3(input_dir.x,0,input_dir.y)
 
@@ -106,7 +127,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 
-	# Rotação
 	if modo_combate:
 		var camera_yaw = camera_horizontal.global_transform.basis.get_euler().y
 		$personagem_lupus.rotation.y = lerp_angle($personagem_lupus.rotation.y, camera_yaw + PI, delta * 10)
@@ -119,7 +139,6 @@ func _physics_process(delta: float) -> void:
 	if is_attacking:
 		return
 
-	# --- ANIMAÇÕES ---
 	if modo_combate:
 		if is_jumping:
 			animator.play("movimentation/jump_espada",0.2)
@@ -145,7 +164,6 @@ func _physics_process(delta: float) -> void:
 				animator.play("movimentation/andar",0.2)
 		else:
 			animator.play("movimentation/parado",0.2)
-
 
 
 func _on_camera_locked_from_portal(is_locked: bool) -> void:
@@ -176,8 +194,6 @@ func take_damage(amount: int, crit := false):
 	hp -= amount
 	if hp < 0: hp = 0
 
-	print("🔥 PLAYER tomou dano:", amount, " | HP:", hp)
-
 	if health_bar:
 		health_bar.value = hp
 
@@ -185,8 +201,22 @@ func take_damage(amount: int, crit := false):
 		die()
 
 
+# ============================
+# ⚰️ MORTE + REVIVER
+# ============================
 func die():
-	print("💀 PLAYER MORREU")
 	animator.play("movimentation/morrer")
 	await get_tree().create_timer(2).timeout
-	get_tree().reload_current_scene()
+	reviver()
+
+
+func reviver():
+	var spawn := get_tree().current_scene.get_node("reviver")
+
+	if spawn:
+		global_transform.origin = spawn.global_transform.origin
+		hp = max_hp
+		if health_bar:
+			health_bar.value = max_hp
+	else:
+		print("❌ ERRO: Nó 'reviver' não encontrado!")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8bnehvqccicy"]
+[gd_scene load_steps=6 format=3 uid="uid://c8bnehvqccicy"]
 
 [ext_resource type="Script" uid="uid://cur7ptxy6qyhn" path="res://mutant.gd" id="1_mpctp"]
 [ext_resource type="PackedScene" uid="uid://bc1ga4ghpkjhd" path="res://personagens/mutantrex.tscn" id="2_4b3r4"]
+[ext_resource type="PackedScene" uid="uid://c1p2frvna1mix" path="res://Cenas/DamageNumber.tscn" id="2_us4n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4b3r4"]
 size = Vector3(1, 2.60837, 0.842163)
@@ -14,7 +15,9 @@ size = Vector3(1, 1.16907, 1)
 [node name="Enemy3D" type="CharacterBody3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 0.850924, -0.315357, -0.312975)
 script = ExtResource("1_mpctp")
-max_hp = 600
+attack_damage = 5
+max_hp = 200
+damage_number_scene = ExtResource("2_us4n3")
 
 [node name="mutantrex" parent="Enemy3D" instance=ExtResource("2_4b3r4")]
 transform = Transform3D(2.32, 0, 0, 0, 2.32, 0, 0, 0, 2.32, -0.000706375, -0.00434887, 0.00203943)
