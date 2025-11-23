@@ -54,3 +54,31 @@ func get_total_moedas() -> int:
 			if slot_data.item_data.nome == "moeda":
 				total_moedas += slot_data.quantidade
 	return total_moedas
+	
+
+func add_slot_data(new_slot: SlotData) -> void:
+	# Try to merge with existing slots
+	for i in range(slot_datas.size()):
+		var slot = slot_datas[i]
+		if slot == null:
+			continue
+
+		if slot.can_fully_merge_with(new_slot):
+			slot.fully_merge_with(new_slot)
+			inventory_updated.emit(self)
+			return
+
+		if slot.can_merge_with(new_slot):
+			slot.quantidade += new_slot.quantidade
+			inventory_updated.emit(self)
+			return
+
+	# If no merge happened, find an empty slot
+	for i in range(slot_datas.size()):
+		if slot_datas[i] == null:
+			slot_datas[i] = new_slot
+			inventory_updated.emit(self)
+			return
+
+	# Inventory full: optional error
+	push_warning("Inventory is full! Cannot add: %s" % new_slot.item_data.nome)

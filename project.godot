@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://Images/GameState.gd"
 PlayerManager="*res://Images/PlayerManager.gd"
+GerenciadorBau="*res://dls/parser/gerenciador_bau.gd"
 
 [global_group]
 

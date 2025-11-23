@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b77ro7tgrjii5"]
+[gd_scene load_steps=5 format=3 uid="uid://b77ro7tgrjii5"]
 
 [ext_resource type="PackedScene" uid="uid://ccekov1ct3ndv" path="res://bau_abrir.tscn" id="1_2j6ff"]
 [ext_resource type="Script" uid="uid://b7uw4tw0vvow2" path="res://Cenas/cenabau.gd" id="1_t1cah"]
+[ext_resource type="Resource" uid="uid://cycpa83aey0wp" path="res://inventario/inventario_player.tres" id="2_y44dx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2j6ff"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_t1cah")
+player_inventory = ExtResource("2_y44dx")
 
 [node name="bau" parent="." instance=ExtResource("1_2j6ff")]
 transform = Transform3D(1.92, 0, 0, 0, 1.92, 0, 0, 0, 1.92, 0.169675, 0, 1.71358)
