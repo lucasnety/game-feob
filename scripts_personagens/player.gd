@@ -3,6 +3,11 @@ extends CharacterBody3D
 @export var inventory_data: InventoryData
 @export var equip_inventory_data: InventoryDataEquip
 
+# --- VIDA ---
+@export var max_hp: int = 100
+var hp: int
+@onready var health_bar = $barra/barra_de_vida
+
 # --- Sinais ---
 signal toggle_inventory()
 signal camera_locked(is_locked: bool)
@@ -29,16 +34,21 @@ var modo_combate: bool = false
 var is_attacking: bool = false
 var loja_aberta: bool = false
 
-func _ready():
-	randomize()  # NECESSÁRIO para o áudio ser aleatório
-	PlayerManager.player = self
 
-	# 🔹 Conecta automaticamente a portais que travam câmera
+func _ready():
+	randomize()
+	PlayerManager.player = self
+	hp = max_hp
+
+	# atualiza barra de vida na inicialização
+	if health_bar:
+		health_bar.max_value = max_hp
+		health_bar.value = max_hp
+
 	for portal in get_tree().get_nodes_in_group("portal"):
 		if portal.has_signal("camera_locked"):
 			portal.camera_locked.connect(_on_camera_locked_from_portal)
 
-	# 🔹 Espada começa nas costas
 	if back_attachment: back_attachment.visible = true
 	if hand_attachment: hand_attachment.visible = false
 
@@ -51,19 +61,16 @@ func _make_persistent():
 
 
 func _physics_process(delta: float) -> void:
+
 	# --- Alternar modo de combate (TAB) ---
 	if Input.is_action_just_pressed("alterar_modo") and not camera_travada:
 		modo_combate = !modo_combate
 		if modo_combate:
-			if back_attachment:
-				back_attachment.visible = false
-			if hand_attachment:
-				hand_attachment.visible = true
+			back_attachment.visible = false
+			hand_attachment.visible = true
 		else:
-			if back_attachment:
-				back_attachment.visible = true
-			if hand_attachment:
-				hand_attachment.visible = false
+			back_attachment.visible = true
+			hand_attachment.visible = false
 
 	# --- Inventário ---
 	if Input.is_action_just_pressed("inventory"):
@@ -77,85 +84,70 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
 
-	# --- Input de movimento ---
-	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction: Vector3 = Vector3(input_dir.x, 0.0, input_dir.y)
+	# --- Movimento ---
+	var input_dir: Vector2 = Input.get_vector("move_left","move_right","move_forward","move_backward")
+	var direction: Vector3 = Vector3(input_dir.x,0,input_dir.y)
+
 	var horizontal_rotation: float = camera_horizontal.global_transform.basis.get_euler().y
 	direction = Basis(Vector3.UP, horizontal_rotation) * direction
 	direction = direction.normalized() if direction.length() > 0 else Vector3.ZERO
 
-	# --- Velocidade ---
-	var current_speed: float = WALK_SPEED
+	var current_speed = WALK_SPEED
 	if Input.is_key_pressed(KEY_SHIFT):
 		current_speed = RUN_SPEED
 
-	# --- Gravidade ---
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# --- Pulo ---
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
 
-	# --- Movimento horizontal ---
 	velocity.x = direction.x * current_speed
 	velocity.z = direction.z * current_speed
 
-	# --- Rotação ---
+	# Rotação
 	if modo_combate:
-		# ⚔️ Em modo combate: personagem sempre olha na direção da câmera (de costas pra ela)
 		var camera_yaw = camera_horizontal.global_transform.basis.get_euler().y
-		$personagem_lupus.rotation.y = lerp_angle(
-			$personagem_lupus.rotation.y,
-			camera_yaw + PI, # 🔁 Corrige inversão — fica de costas pra câmera
-			delta * 10
-		)
+		$personagem_lupus.rotation.y = lerp_angle($personagem_lupus.rotation.y, camera_yaw + PI, delta * 10)
 	else:
-		# 🎮 Em modo normal: só gira quando anda
 		if direction != Vector3.ZERO:
-			$personagem_lupus.rotation.y = lerp_angle(
-				$personagem_lupus.rotation.y,
-				atan2(direction.x, direction.z),
-				delta * 5
-			)
+			$personagem_lupus.rotation.y = lerp_angle($personagem_lupus.rotation.y, atan2(direction.x, direction.z), delta * 5)
 
-	# --- Move personagem ---
 	move_and_slide()
 
-	# --- ⛔ Bloqueia outras animações se estiver atacando ---
 	if is_attacking:
 		return
 
-
-	# --- Animações (com blend_time 0.2) ---
+	# --- ANIMAÇÕES ---
 	if modo_combate:
 		if is_jumping:
-			animator.play("movimentation/jump_espada", 0.2)
-			if is_on_floor():
-				is_jumping = false
+			animator.play("movimentation/jump_espada",0.2)
+			if is_on_floor(): is_jumping = false
+
 		elif direction.length() > 0:
 			if current_speed == RUN_SPEED:
-				animator.play("movimentation/correr_espada", 0.2)
+				animator.play("movimentation/correr_espada",0.2)
 			else:
-				animator.play("movimentation/andar_espada", 0.2)
+				animator.play("movimentation/andar_espada",0.2)
 		else:
-			animator.play("movimentation/parado_sword", 0.2)
+			animator.play("movimentation/parado_sword",0.2)
+
 	else:
 		if is_jumping:
-			animator.play("movimentation/pular", 0.2)
-			if is_on_floor():
-				is_jumping = false
+			animator.play("movimentation/pular",0.2)
+			if is_on_floor(): is_jumping = false
+
 		elif direction.length() > 0:
 			if current_speed == RUN_SPEED:
-				animator.play("movimentation/correr_rapido", 0.2)
+				animator.play("movimentation/correr_rapido",0.2)
 			else:
-				animator.play("movimentation/andar", 0.2)
+				animator.play("movimentation/andar",0.2)
 		else:
-			animator.play("movimentation/parado", 0.2)
+			animator.play("movimentation/parado",0.2)
 
 
-# --- Portal trava/destrava câmera ---
+
 func _on_camera_locked_from_portal(is_locked: bool) -> void:
 	camera_travada = is_locked
 
@@ -166,12 +158,35 @@ func interact() -> void:
 
 		if not loja_aberta:
 			loja_aberta = true
-
 			var audios = [shop_audio_1, shop_audio_2, shop_audio_3]
-			var chosen_audio: AudioStreamPlayer3D = audios[randi() % audios.size()]
-			if not chosen_audio.playing:
-				chosen_audio.play()
+			var chosen = audios[randi() % audios.size()]
+			if not chosen.playing:
+				chosen.play()
 		else:
-			loja_aberta = false  # apenas fecha, sem áudio
+			loja_aberta = false
 
-		collider.player_interact()
+		if collider.has_method("player_interact"):
+			collider.player_interact()
+
+
+# ============================
+# ⚠️ PLAYER TOMA DANO AQUI
+# ============================
+func take_damage(amount: int, crit := false):
+	hp -= amount
+	if hp < 0: hp = 0
+
+	print("🔥 PLAYER tomou dano:", amount, " | HP:", hp)
+
+	if health_bar:
+		health_bar.value = hp
+
+	if hp <= 0:
+		die()
+
+
+func die():
+	print("💀 PLAYER MORREU")
+	animator.play("movimentation/morrer")
+	await get_tree().create_timer(2).timeout
+	get_tree().reload_current_scene()

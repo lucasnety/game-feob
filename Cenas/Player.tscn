@@ -1,15 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://b0u6y37hrni0a"]
+[gd_scene load_steps=20 format=3 uid="uid://b0u6y37hrni0a"]
 
 [ext_resource type="Script" uid="uid://c0wxqxuog7jrw" path="res://Cenas/player.gd" id="1_e4l8r"]
 [ext_resource type="Script" uid="uid://neo8p46w2lmv" path="res://scripts_personagens/player.gd" id="1_vwqu2"]
-[ext_resource type="Script" uid="uid://cjapxbycb0phv" path="res://inventario/inventory_data_equip.gd" id="3_js5op"]
-[ext_resource type="Script" uid="uid://bn2ei8xjyorl2" path="res://inventario/inventory_data.gd" id="3_v0sdg"]
 [ext_resource type="PackedScene" uid="uid://3a1vgl35yn2c" path="res://personagens/player_lupus.tscn" id="3_wudov"]
-[ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="4_ew46v"]
 [ext_resource type="Script" uid="uid://bngwod822lol0" path="res://camera_um.gd" id="4_js5op"]
 [ext_resource type="Script" uid="uid://dxkqivjwte8vi" path="res://scripts_personagens/crosshair.gd" id="5_ew46v"]
-[ext_resource type="Resource" uid="uid://ccsmh3q1lp0aw" path="res://item/items/moeda.tres" id="5_tcel6"]
-[ext_resource type="Resource" uid="uid://dqxmmttye246v" path="res://item/items/espada_basica.tres" id="6_waiaw"]
 [ext_resource type="Script" uid="uid://divsx5u3jbv77" path="res://inventario/inventory_interface.gd" id="8_ew46v"]
 [ext_resource type="PackedScene" uid="uid://xyrbwqk41xir" path="res://inventario/inventory.tscn" id="9_e4l8r"]
 [ext_resource type="Script" uid="uid://dhy1nbin037xg" path="res://scripts_personagens/combat_system.gd" id="9_nm60e"]
@@ -19,35 +14,21 @@
 [ext_resource type="AudioStream" uid="uid://bj60468beemay" path="res://assets/audio/menu/audio2.mp3" id="14_apxsp"]
 [ext_resource type="AudioStream" uid="uid://8hr7pkeixtsd" path="res://assets/audio/menu/audio3.mp3" id="15_fnbhc"]
 
-[sub_resource type="Resource" id="Resource_w0hkx"]
-script = ExtResource("4_ew46v")
-item_data = ExtResource("5_tcel6")
-quantidade = 50
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_necjj"]
-script = ExtResource("4_ew46v")
-item_data = ExtResource("6_waiaw")
-quantidade = 1
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_apxsp"]
-script = ExtResource("4_ew46v")
-item_data = ExtResource("5_tcel6")
-quantidade = 10
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_v550h"]
-script = ExtResource("3_v0sdg")
-slot_datas = Array[ExtResource("4_ew46v")]([SubResource("Resource_w0hkx"), SubResource("Resource_necjj"), null, null, null, null, null, null, null, null, SubResource("Resource_apxsp"), null])
-metadata/_custom_type_script = "uid://bn2ei8xjyorl2"
-
-[sub_resource type="Resource" id="Resource_tcel6"]
-script = ExtResource("3_js5op")
-slot_datas = Array[ExtResource("4_ew46v")]([null])
-metadata/_custom_type_script = "uid://cjapxbycb0phv"
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4l8r"]
+
+[sub_resource type="Gradient" id="Gradient_necjj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_apxsp"]
+gradient = SubResource("Gradient_necjj")
+
+[sub_resource type="Gradient" id="Gradient_fnbhc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_53btw"]
+gradient = SubResource("Gradient_fnbhc")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_v0sdg"]
 specular_color = Color(1, 0, 1, 1)
@@ -58,8 +39,6 @@ script = ExtResource("1_e4l8r")
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1.22169, 0.000139102, 0.230609, 0.000121272, 1.42278, -0.00148923, -0.215017, 0.00159262, 1.31028, 0, 0, 0)
 script = ExtResource("1_vwqu2")
-inventory_data = SubResource("Resource_v550h")
-equip_inventory_data = SubResource("Resource_tcel6")
 
 [node name="personagem_lupus" parent="Player" instance=ExtResource("3_wudov")]
 transform = Transform3D(0.985, 0, 0, 0, 0.985, 0, 0, 0, 0.985, 0, 0, -0.12986)
@@ -112,6 +91,18 @@ stream = ExtResource("14_apxsp")
 
 [node name="ShopGreetingAudio3" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("15_fnbhc")
+
+[node name="barra" type="CanvasLayer" parent="Player"]
+
+[node name="barra_de_vida" type="TextureProgressBar" parent="Player/barra"]
+offset_left = 355.0
+offset_top = 584.0
+offset_right = 855.0
+offset_bottom = 1084.0
+scale = Vector2(5.13434, 0.64016)
+value = 100.0
+texture_under = SubResource("GradientTexture2D_apxsp")
+texture_progress = SubResource("GradientTexture2D_53btw")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

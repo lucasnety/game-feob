@@ -6,6 +6,8 @@ extends Node3D
 
 @onready var area: Area3D = $Espada_lobo/Area3D
 
+var owner_body: Node = null  # 👈 Dono da espada
+
 func _ready():
 	if area:
 		area.monitoring = false
@@ -13,7 +15,10 @@ func _ready():
 	else:
 		push_error("⚠️ Area3D não encontrada!")
 
-# 🔹 Agora attack recebe a direção do ataque
+	# Se a espada estiver dentro do Player (o pai dela)
+	owner_body = get_parent()
+
+
 func attack(direction: Vector3 = Vector3.FORWARD):
 	print("🗡️ Espada atacando:", name, " | Direção:", direction)
 
@@ -21,27 +26,41 @@ func attack(direction: Vector3 = Vector3.FORWARD):
 		push_error("⚠️ Area3D não encontrada!")
 		return
 
-	# 🔹 Ativa hitbox temporariamente
 	area.monitoring = true
 	await get_tree().create_timer(0.2).timeout
 	area.monitoring = false
 
 	print("💤 Ataque encerrado")
 
+
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		var final_damage = damage
-		var is_crit = false
+	# ❌ Evita acertar o próprio dono
+	if body == owner_body:
+		print("⛔ Ignorado — dono da espada:", body.name)
+		return
 
-		# 🔹 Checa chance crítica
-		if randf() <= crit_chance:
-			final_damage *= crit_multiplier
-			is_crit = true
+	# ❌ Evita acertar jogadores
+	if body.is_in_group("player"):
+		print("⛔ Ignorado — PLAYER:", body.name)
+		return
 
-		# 🔹 Passa o flag de crítico corretamente
-		body.take_damage(final_damage, is_crit)
+	# ❌ Evita acertar coisas sem life
+	if not body.has_method("take_damage"):
+		print("⛔ Ignorado — não possui take_damage():", body.name)
+		return
 
-		if is_crit:
-			print("💥 Acertou CRÍTICO:", body.name, "| Dano:", final_damage)
-		else:
-			print("💥 Acertou:", body.name, "| Dano:", final_damage)
+	# --- Cálculo do dano ---
+	var final_damage = damage
+	var is_crit = false
+
+	if randf() <= crit_chance:
+		final_damage *= crit_multiplier
+		is_crit = true
+
+	# Aplica dano
+	body.take_damage(final_damage, is_crit)
+
+	if is_crit:
+		print("💥 CRÍTICO em:", body.name, "| Dano:", final_damage)
+	else:
+		print("💥 Acertou:", body.name, "| Dano:", final_damage)
