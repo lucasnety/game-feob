@@ -15,7 +15,7 @@ size = Vector3(1, 1.16907, 1)
 [node name="Enemy3D" type="CharacterBody3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 0.850924, -0.315357, -0.312975)
 script = ExtResource("1_mpctp")
-attack_damage = 5
+attack_damage = 10
 max_hp = 200
 damage_number_scene = ExtResource("2_us4n3")
 

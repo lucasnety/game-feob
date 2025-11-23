@@ -80,13 +80,22 @@ func _on_dificulty_selected(level):
 	GameState.dificuldade = level
 
 	if player_ref:
+		# Esconde a barra de vida durante o loading
+		var health_bar = player_ref.get_node_or_null("barra/barra_de_vida")
+		if health_bar:
+			health_bar.visible = false
+
 		match level:
 			"Normal": if Maker_Normal: player_ref.global_transform = Maker_Normal.global_transform
 			"Cruel": if Maker_Cruel: player_ref.global_transform = Maker_Cruel.global_transform
 			"Infernal": if Maker_Infernal: player_ref.global_transform = Maker_Infernal.global_transform
 
-	if loading_panel:
-		await loading_panel.start_loading("")
+		if loading_panel:
+			await loading_panel.start_loading("")
+
+		# Mostra a barra de vida de volta
+		if health_bar:
+			health_bar.visible = true
 
 func _on_voltar_pressed():
 	if menu:

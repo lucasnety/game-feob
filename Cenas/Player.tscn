@@ -95,11 +95,18 @@ stream = ExtResource("15_fnbhc")
 [node name="barra" type="CanvasLayer" parent="Player"]
 
 [node name="barra_de_vida" type="TextureProgressBar" parent="Player/barra"]
-offset_left = 355.0
-offset_top = 584.0
-offset_right = 855.0
-offset_bottom = 1084.0
-scale = Vector2(5.13434, 0.64016)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -55.0
+offset_right = 360.0
+offset_bottom = 445.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.97771, 0.559794)
 value = 100.0
 texture_under = SubResource("GradientTexture2D_apxsp")
 texture_progress = SubResource("GradientTexture2D_53btw")
