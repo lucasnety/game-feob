@@ -74,7 +74,12 @@ func open_chest():
 		add_coins_to_inventory(loot["moedas"])
 
 	if loot.has("fragmento"):
-		add_fragment_to_inventory(loot["fragmento"])
+		var frag = loot["fragmento"]
+		if frag is Array:
+			frag = frag.pick_random()
+		
+		if frag > 0:	   # pick one value at random
+			add_fragment_to_inventory(frag)
 
 
 func add_coins_to_inventory(amount: int):

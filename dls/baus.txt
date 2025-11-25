@@ -1,12 +1,14 @@
 bau_id "bau_normal" {
 	moedas = random({20, 40, 60})
+	fragmento = random({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1})
 }
 
 bau_id "bau_cruel" {
 	moedas = random({100, 200, 300})
+	fragmento = random({0, 0, 0, 1})
 }
 
 bau_id "bau_infernal" {
 	moedas = random({500, 1000, 1500})
-	fragmento = 1
+	fragmento = random({1, 2})
 }

@@ -2,6 +2,7 @@ extends Node
 
 # Dificuldade
 var dificuldade: String = "Normal"
+var chest_id: String = "bau_normal"
 
 # Dados do player
 var vida: int = 100

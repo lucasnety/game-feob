@@ -86,9 +86,16 @@ func _on_dificulty_selected(level):
 			health_bar.visible = false
 
 		match level:
-			"Normal": if Maker_Normal: player_ref.global_transform = Maker_Normal.global_transform
-			"Cruel": if Maker_Cruel: player_ref.global_transform = Maker_Cruel.global_transform
-			"Infernal": if Maker_Infernal: player_ref.global_transform = Maker_Infernal.global_transform
+			"Normal":
+				GameState.chest_id = "bau_normal"
+				if Maker_Normal: player_ref.global_transform = Maker_Normal.global_transform
+				
+			"Cruel":
+				GameState.chest_id = "bau_cruel"
+				if Maker_Cruel: player_ref.global_transform = Maker_Cruel.global_transform
+			"Infernal":
+				GameState.chest_id = "bau_infernal"
+				if Maker_Infernal: player_ref.global_transform = Maker_Infernal.global_transform
 
 		if loading_panel:
 			await loading_panel.start_loading("")

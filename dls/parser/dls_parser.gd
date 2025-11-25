@@ -21,7 +21,14 @@ func parse_dsl(text: String) -> Dictionary:
 			chests[current_chest]["moedas"] = values
 
 		elif line.begins_with("fragmento"):
-			var number := int(line.split("=")[1].strip_edges())
-			chests[current_chest]["fragmento"] = number
+			if "{" in line and "}" in line:
+				var inside := line.get_slice("{", 1).get_slice("}", 0)
+				var values := []
+				for token in inside.split(","):
+					values.append(int(token.strip_edges()))
+					chests[current_chest]["fragmento"] = values
+			else:
+				var number := int(line.split("=")[1].strip_edges())
+				chests[current_chest]["fragmento"] = number
 
 	return chests

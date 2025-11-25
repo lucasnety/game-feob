@@ -23,6 +23,7 @@ func _on_enemy_died():
 
 	# Instancia o baú
 	var bau = bau_scene.instantiate()
+	bau.chest_id = GameState.chest_id
 	get_tree().current_scene.add_child(bau)
 
 	# Coloca na posição do Marker3D

@@ -9,6 +9,6 @@ damage = 0
 nome = "espada dos deuses"
 descricao = "dano: 250"
 stackable = false
-price = 1000
+price = 500
 texture = ExtResource("2_j55de")
 metadata/_custom_type_script = "uid://daa8rwtrx7toq"

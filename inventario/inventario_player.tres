@@ -1,36 +1,16 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=10 format=3 uid="uid://cycpa83aey0wp"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://cycpa83aey0wp"]
 
 [ext_resource type="Script" uid="uid://bn2ei8xjyorl2" path="res://inventario/inventory_data.gd" id="1_8er20"]
 [ext_resource type="Script" uid="uid://csryyvm0ucsy6" path="res://inventario/slot_data.gd" id="2_r3pw4"]
-[ext_resource type="Resource" uid="uid://ccsmh3q1lp0aw" path="res://item/items/moeda.tres" id="3_wfhg6"]
 [ext_resource type="Resource" uid="uid://dqxmmttye246v" path="res://item/items/espada_basica.tres" id="4_dw1j0"]
-[ext_resource type="Resource" uid="uid://gncemxnd1pgw" path="res://item/items/fragmento.tres" id="5_r3pw4"]
 
-[sub_resource type="Resource" id="Resource_w0hkx"]
-script = ExtResource("2_r3pw4")
-item_data = ExtResource("3_wfhg6")
-quantidade = 50
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_necjj"]
+[sub_resource type="Resource" id="Resource_0okho"]
 script = ExtResource("2_r3pw4")
 item_data = ExtResource("4_dw1j0")
 quantidade = 1
 metadata/_custom_type_script = "uid://csryyvm0ucsy6"
 
-[sub_resource type="Resource" id="Resource_wfhg6"]
-script = ExtResource("2_r3pw4")
-item_data = ExtResource("5_r3pw4")
-quantidade = 1
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
-[sub_resource type="Resource" id="Resource_apxsp"]
-script = ExtResource("2_r3pw4")
-item_data = ExtResource("3_wfhg6")
-quantidade = 10
-metadata/_custom_type_script = "uid://csryyvm0ucsy6"
-
 [resource]
 script = ExtResource("1_8er20")
-slot_datas = Array[ExtResource("2_r3pw4")]([SubResource("Resource_w0hkx"), SubResource("Resource_necjj"), SubResource("Resource_wfhg6"), null, null, null, null, null, null, null, SubResource("Resource_apxsp"), null])
+slot_datas = Array[ExtResource("2_r3pw4")]([SubResource("Resource_0okho"), null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://bn2ei8xjyorl2"
