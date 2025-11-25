@@ -8,4 +8,5 @@ bau_id "bau_cruel" {
 
 bau_id "bau_infernal" {
 	moedas = random({500, 1000, 1500})
+	fragmento = 1
 }

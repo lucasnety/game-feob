@@ -19,7 +19,7 @@
 
 [sub_resource type="Resource" id="Resource_apxsp"]
 script = ExtResource("4_w0hkx")
-slot_datas = Array[ExtResource("5_necjj")]([])
+slot_datas = Array[ExtResource("5_necjj")]([null])
 metadata/_custom_type_script = "uid://cjapxbycb0phv"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4l8r"]
@@ -158,11 +158,23 @@ offset_bottom = 50.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -88.0
-offset_right = -18.0
-offset_bottom = 23.0
+offset_left = -316.0
+offset_top = 2.0
+offset_right = -246.0
+offset_bottom = 25.0
 grow_horizontal = 0
 text = "moedas: "
+
+[node name="FragmentosLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -222.0
+offset_top = 1.0
+offset_right = -17.0
+offset_bottom = 24.0
+grow_horizontal = 0
+text = "fragmentos de ansiedade: "
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

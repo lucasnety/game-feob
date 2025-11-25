@@ -8,7 +8,9 @@ var external_inventory_owner
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var equip_inventory: PanelContainer = $EquipInventory
 @onready var moedas_label: Label = $"../MoedasLabel"
+@onready var fragmentos_label: Label = $"../FragmentosLabel"
 @onready var external_inventory: PanelContainer = $ExternalInventory
+
 
 
 func _ready() -> void:
@@ -28,6 +30,8 @@ func _physics_process(delta: float) -> void:
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_updated.connect(update_moedas_display)
 	update_moedas_display(inventory_data)
+	inventory_data.inventory_updated.connect(update_fragmentos_display)
+	update_fragmentos_display(inventory_data)
 
 	if inventory_data:
 		inventory_data.inventory_interact.connect(on_inventory_interact)
@@ -121,6 +125,10 @@ func update_moedas_display(inventory_data: InventoryData) -> void:
 		var total_gold = inventory_data.get_total_moedas()
 		moedas_label.text = "moedas: " + str(total_gold)
 
+func update_fragmentos_display(inventory_data: InventoryData) -> void:
+	if is_instance_valid(fragmentos_label):
+		var total_fragmentos = inventory_data.get_total_fragmentos()
+		fragmentos_label.text = "fragmentos de ansiedade: " + str(total_fragmentos)
 
 func try_buy_item(slot_data: SlotData) -> bool:
 	if not slot_data or not slot_data.item_data:
@@ -145,7 +153,6 @@ func try_buy_item(slot_data: SlotData) -> bool:
 
 	var total_coins = player_data.get_total_moedas()
 	if total_coins < item_price:
-		print("❌ Not enough coins! Need:", item_price, "Have:", total_coins)
 		return false
 
 	# --- Deduct coins ---

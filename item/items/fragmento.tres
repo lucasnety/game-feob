@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://gncemxnd1pgw"]
+
+[ext_resource type="Script" uid="uid://bm8r83thcxlbl" path="res://item/item_data.gd" id="1_8jqgv"]
+[ext_resource type="Texture2D" uid="uid://dl7wdktvxchyy" path="res://item/textura_items/fragmentos.tres" id="2_cqh3f"]
+
+[resource]
+script = ExtResource("1_8jqgv")
+nome = "fragmento de ansiedade"
+descricao = ""
+stackable = true
+price = 0
+texture = ExtResource("2_cqh3f")
+metadata/_custom_type_script = "uid://bm8r83thcxlbl"

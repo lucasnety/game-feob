@@ -54,7 +54,14 @@ func get_total_moedas() -> int:
 			if slot_data.item_data.nome == "moeda":
 				total_moedas += slot_data.quantidade
 	return total_moedas
-	
+
+func get_total_fragmentos() -> int:
+	var total_fragmentos = 0
+	for slot_data in slot_datas:
+		if slot_data != null and slot_data.item_data != null:
+			if slot_data.item_data.nome == "fragmento de ansiedade":
+				total_fragmentos += slot_data.quantidade
+	return total_fragmentos
 
 func add_slot_data(new_slot: SlotData) -> void:
 	# Try to merge with existing slots

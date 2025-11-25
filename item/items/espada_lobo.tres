@@ -9,6 +9,6 @@ damage = 50
 nome = "espada lobo"
 descricao = "dano: 50"
 stackable = false
-price = 50
+price = 200
 texture = ExtResource("2_w46yv")
 metadata/_custom_type_script = "uid://daa8rwtrx7toq"

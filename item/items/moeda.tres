@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_2i32i")
 nome = "moeda"
-descricao = "teste"
+descricao = "objeto essencial para um aventureio"
 stackable = true
-price = 1
+price = 0
 texture = ExtResource("2_8722c")
 metadata/_custom_type_script = "uid://bm8r83thcxlbl"

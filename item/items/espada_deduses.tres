@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_4ucsf")
 damage = 0
-nome = "250"
+nome = "espada dos deuses"
 descricao = "dano: 250"
 stackable = false
-price = 500
+price = 1000
 texture = ExtResource("2_j55de")
 metadata/_custom_type_script = "uid://daa8rwtrx7toq"

@@ -66,9 +66,15 @@ func abrir_bau():
 
 
 func open_chest():
-	var coin_amount = GerenciadorBau.get_random_coins(chest_id)
-	print("Chest gives:", coin_amount, "coins")
-	add_coins_to_inventory(coin_amount)
+	var loot := GerenciadorBau.get_random_loot(chest_id)
+
+	
+
+	if loot.has("moedas"):
+		add_coins_to_inventory(loot["moedas"])
+
+	if loot.has("fragmento"):
+		add_fragment_to_inventory(loot["fragmento"])
 
 
 func add_coins_to_inventory(amount: int):
@@ -76,6 +82,16 @@ func add_coins_to_inventory(amount: int):
 
 	var slot := SlotData.new()
 	slot.item_data = coin_item
+	slot.quantidade = amount
+
+	player_inventory.add_slot_data(slot)
+	
+	
+func add_fragment_to_inventory(amount: int):
+	var fragment_item: ItemData = load("res://item/items/fragmento.tres")
+
+	var slot := SlotData.new()
+	slot.item_data = fragment_item
 	slot.quantidade = amount
 
 	player_inventory.add_slot_data(slot)

@@ -16,13 +16,21 @@ func load_dsl():
 	else:
 		push_error("Could not find DSL file!")
 
-func get_random_coins(chest_id: String) -> int:
+func get_random_loot(chest_id: String) -> Dictionary:
 	if not chests.has(chest_id):
-		push_error("ChestManager: chest_id not found: %s" % chest_id)
-		return 0
-	
-	var values = chests[chest_id]
-	if values.is_empty():
-		return 0
-	
-	return values[randi() % values.size()]
+		return {}
+
+	var data = chests[chest_id]
+	var result := {}
+
+	# random coins
+	if data.has("moedas"):
+		var list = data["moedas"]
+		var random_value = list[randi() % list.size()]
+		result["moedas"] = random_value
+
+	# fragmento (fixed number)
+	if data.has("fragmento"):
+		result["fragmento"] = data["fragmento"]
+
+	return result
