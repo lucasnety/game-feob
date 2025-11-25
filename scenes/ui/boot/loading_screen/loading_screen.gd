@@ -9,6 +9,7 @@ var next_scene_path := "res://scenes/ui/boot/main_menu/main_menu.tscn"
 func _ready():
 	loading_bar.value = 0
 	loading_text.text = "Carregando..."
+	$Title/AnimationPlayer.play("piscar_title")   # <<< ANIMAÇÃO DO TÍTULO ATIVADA!
 	simulate_loading()
 
 func simulate_loading():
