@@ -92,6 +92,8 @@ theme_override_constants/separation = 30
 
 [node name="BtnNovoJogo" type="Button" parent="MenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_af7st")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
@@ -100,6 +102,8 @@ text = "Novo Jogo"
 
 [node name="BtnContinuar" type="Button" parent="MenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_af7st")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
@@ -108,6 +112,8 @@ text = "Continuar"
 
 [node name="BtnSair" type="Button" parent="MenuContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_af7st")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxFlat_af7st")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aoxxl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ip2q8")
